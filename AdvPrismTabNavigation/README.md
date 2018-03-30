@@ -12,7 +12,7 @@ If you're looking for how to navigate inside a Xamarin.Forms Tab Page programati
 * Almost no XAML-code-behind garbage
 * Coming back to the TabbedPage, the Child-Tab switching occurs only when the TabbedPage is actually visible
 
-How cool is that eh! ;)
+How cool is that eh! 😉
 
 <GIF><GIF><GIF><GIF><GIF>
 
