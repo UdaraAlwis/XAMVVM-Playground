@@ -22,5 +22,7 @@ How cool is that eh! ;)
 
 <br />
 
-<img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/AdvPrismTabNavigation/screenshots/mvvm_unittesting.png"  height="100" />
+And the golden UnitTesting...
+
+<img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/AdvPrismTabNavigation/screenshots/mvvm_unittesting.png"  height="200" />
 
