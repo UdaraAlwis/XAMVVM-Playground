@@ -14,5 +14,13 @@ If you're looking for how to navigate inside a Xamarin.Forms Tab Page programati
 
 How cool is that eh! ;)
 
-<GIF><GIF><GIF><GIF><GIF>
+<img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/AdvPrismTabNavigation/screenshots/Android-In-Tab-Switching.gif"  height="350" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/AdvPrismTabNavigation/screenshots/iOS-In-Tab-Switching.gif"  height="350" />
+
+<br />
+
+<img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/AdvPrismTabNavigation/screenshots/Android-Outside-Tab-Switching.gif"  height="350" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/AdvPrismTabNavigation/screenshots/iOS-Outside-Tab-Switching.gif"  height="350" />
+
+<br />
+
+<img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/AdvPrismTabNavigation/screenshots/mvvm_unittesting.png"  height="100" />
 
