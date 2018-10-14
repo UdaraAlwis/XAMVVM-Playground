@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XFWithSpecflow.Views.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="{Binding Title}">
+
+    <Grid VerticalOptions="Fill">
+
+        <Label Grid.Row="0" Text="Welcome, Note Taker!" />
+
+        <Label
+            Grid.Row="1"
+            AutomationId="LastNoteLabel"
+            LineBreakMode="TailTruncation"
+            Text="..." />
+
+        <ListView Grid.Row="2" ItemsSource="{Binding NotesList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Label FontSize="Large" Text="{Binding .}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button
+            Grid.Row="3"
+            Command="{Binding AddNewNoteCommand}"
+            Text="New Note" />
+    </Grid>
+
+</ContentPage>

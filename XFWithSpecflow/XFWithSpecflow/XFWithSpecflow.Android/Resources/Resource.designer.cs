@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("AdvPrismTabNavigation.Droid.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("XFWithSpecflow.Droid.Resource", IsApplication=true)]
 
-namespace AdvPrismTabNavigation.Droid
+namespace XFWithSpecflow.Droid
 {
 	
 	
@@ -26,7 +26,7 @@ namespace AdvPrismTabNavigation.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::AdvPrismTabNavigation.Droid.Resource.Attribute.actionBarSize;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::XFWithSpecflow.Droid.Resource.Attribute.actionBarSize;
 		}
 		
 		public partial class Animation
