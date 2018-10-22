@@ -7,9 +7,10 @@
     prism:ViewModelLocator.AutowireViewModel="True">
     <ContentPage.Content>
         <Grid>
+            <Label Grid.Row="0" Text="Welcome to Xamarin.Forms!" />
             <ListView
                 x:Name="NoteListView"
-                Grid.Row="0"
+                Grid.Row="1"
                 ItemsSource="{Binding NoteList}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -18,11 +19,12 @@
                 </ListView.ItemTemplate>
             </ListView>
             <Button
-                Grid.Row="1"
+                Grid.Row="2"
                 Command="{Binding AddNewCommand}"
                 Text="Add New" />
 
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>

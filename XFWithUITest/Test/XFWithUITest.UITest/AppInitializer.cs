@@ -10,7 +10,9 @@ namespace XFWithUITest.UITest
         {
             if (platform == Platform.Android)
             {
-                return ConfigureApp.Android.StartApp();
+                return ConfigureApp.Android
+                    .InstalledApp("com.udara.xfwithuitest")
+                    .StartApp();
             }
 
             return ConfigureApp.iOS.StartApp();
