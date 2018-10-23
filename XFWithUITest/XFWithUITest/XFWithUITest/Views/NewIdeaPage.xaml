@@ -32,7 +32,6 @@
                 Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat='{0:dddd, dd MMMM yyyy HH:mm:ss}'}"
                 TextColor="#c9cccf" />
 
-
             <Button
                 Grid.Row="3"
                 BackgroundColor="DodgerBlue"

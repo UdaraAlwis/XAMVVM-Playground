@@ -22,6 +22,8 @@ namespace XFWithUITest.ViewModels
         private void SaveIdea()
         {
             // Timer ended
+
+            _navigationService.GoBackAsync();
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)
