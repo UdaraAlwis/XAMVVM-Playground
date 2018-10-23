@@ -28,7 +28,6 @@
                             <Frame
                                 Margin="5,10,5,10"
                                 Padding="10,10,10,10"
-                                BorderColor="#494c50"
                                 CornerRadius="8"
                                 HasShadow="True"
                                 IsClippedToBounds="True">

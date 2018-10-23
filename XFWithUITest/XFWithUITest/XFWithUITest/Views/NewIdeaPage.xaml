@@ -32,10 +32,20 @@
                 Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat='{0:dddd, dd MMMM yyyy HH:mm:ss}'}"
                 TextColor="#c9cccf" />
 
+
+            <Button
+                Grid.Row="3"
+                BackgroundColor="DodgerBlue"
+                Command="{Binding SaveIdeaCommand}"
+                FontSize="Large"
+                Text="Save"
+                TextColor="White" />
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="60" />
             </Grid.RowDefinitions>
         </Grid>
     </ContentPage.Content>
