@@ -10,6 +10,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\NewIdeaPage.xaml.cs">
+      <DependentUpon>NewIdeaPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\NewIdeaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

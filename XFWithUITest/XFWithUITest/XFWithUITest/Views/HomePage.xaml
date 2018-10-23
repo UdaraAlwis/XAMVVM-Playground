@@ -4,29 +4,69 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-    prism:ViewModelLocator.AutowireViewModel="True">
+    Title="Ideapad"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="White">
     <ContentPage.Content>
-        <Grid>
-            <Label Grid.Row="0" Text="Welcome to Xamarin.Forms!" />
+        <Grid RowSpacing="5">
+
+            <Label
+                Grid.Row="0"
+                FontSize="Large"
+                HorizontalTextAlignment="Center"
+                Text="Hey there, Welcome!" />
+
             <ListView
                 x:Name="NoteListView"
                 Grid.Row="1"
-                ItemsSource="{Binding NoteList}">
+                HasUnevenRows="True"
+                ItemsSource="{Binding NoteList}"
+                SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Detail="{Binding NoteTitle}" Text="{Binding NoteString}" />
+                        <ViewCell>
+                            <Frame
+                                Margin="5,10,5,10"
+                                Padding="10,10,10,10"
+                                BorderColor="#494c50"
+                                CornerRadius="8"
+                                HasShadow="True"
+                                IsClippedToBounds="True">
+                                <Grid>
+                                    <Label
+                                        Grid.Row="0"
+                                        FontSize="Large"
+                                        Text="{Binding NoteTitle}"
+                                        TextColor="#494c50" />
+                                    <Label
+                                        Grid.Row="1"
+                                        FontSize="Small"
+                                        Text="{Binding NoteString}"
+                                        TextColor="#797f86" />
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
             <Button
                 Grid.Row="2"
-                Command="{Binding AddNewCommand}"
-                Text="Add New" />
+                BackgroundColor="DodgerBlue"
+                Command="{Binding NewIdeaCommand}"
+                FontSize="Large"
+                Text="New Idea"
+                TextColor="White" />
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="60" />
             </Grid.RowDefinitions>
         </Grid>
     </ContentPage.Content>

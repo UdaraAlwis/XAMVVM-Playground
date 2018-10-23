@@ -30,6 +30,7 @@ namespace XFWithUITest
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
+            containerRegistry.RegisterForNavigation<NewIdeaPage, NewIdeaPageViewModel>();
         }
     }
 }

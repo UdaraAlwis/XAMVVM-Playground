@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XFWithUITest.Views.NewIdeaPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:system="clr-namespace:System;assembly=netstandard"
+    Title="New Idea"
+    mvvm:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="White">
+    <ContentPage.Content>
+        <Grid RowSpacing="5">
+
+            <Entry
+                Grid.Row="0"
+                Margin="10,0,0,0"
+                FontSize="Large"
+                Placeholder="title..."
+                TextColor="#494c50" />
+
+            <Editor
+                Grid.Row="1"
+                Margin="10,0,0,0"
+                FontSize="Large"
+                Placeholder="whatever your idea..."
+                TextColor="#797f86" />
+
+            <Label
+                Grid.Row="2"
+                Margin="10,0,0,0"
+                FontSize="Medium"
+                Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat='{0:dddd, dd MMMM yyyy HH:mm:ss}'}"
+                TextColor="#c9cccf" />
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
