@@ -36,12 +36,12 @@
                                     <Label
                                         Grid.Row="0"
                                         FontSize="Large"
-                                        Text="{Binding NoteTitle}"
+                                        Text="{Binding IdeaTitle}"
                                         TextColor="#494c50" />
                                     <Label
                                         Grid.Row="1"
                                         FontSize="Small"
-                                        Text="{Binding NoteString}"
+                                        Text="{Binding IdeaText}"
                                         TextColor="#797f86" />
 
                                     <Grid.RowDefinitions>
