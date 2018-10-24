@@ -13,33 +13,42 @@ namespace XFWithUITest.ViewModels
 	public class HomePageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
+
         public ObservableCollection<Idea> NoteList { get; set; }
+
+        public bool IsEmptyNoteList => NoteList == null || NoteList.Count == 0;
 
         public DelegateCommand NewIdeaCommand { get; set; }
 
         public HomePageViewModel(INavigationService navigationService)
              : base(navigationService)
         {
-            _navigationService = navigationService;
-            Title = "Main Page";
+            this._navigationService = navigationService;
+
+            NoteList = new ObservableCollection<Idea>();
 
             NewIdeaCommand = new DelegateCommand(NewIdea);
-
-            Random rand = new Random();
-
-            NoteList = new ObservableCollection<Idea>()
-            {
-                new Idea{ IdeaTitle = "Marketing situation of nottingham", IdeaText = "Local burned alive to the crisp out of nowhere Barnie the golden smith", NoteDateTime = DateTime.Now.AddMinutes(rand.Next(5,20)) },
-                new Idea{ IdeaTitle = "Title 2", IdeaText = "Toast box in the tree build on top of the martin solving binge", NoteDateTime = DateTime.Now.AddMinutes(rand.Next(5,20)) },
-                new Idea{ IdeaTitle = "Title 3", IdeaText = "This is a test note 3!", NoteDateTime = DateTime.Now.AddMinutes(rand.Next(5,20)) },
-                new Idea{ IdeaTitle = "Title 4", IdeaText = "This is a test note 4!", NoteDateTime = DateTime.Now.AddMinutes(rand.Next(5,20)) },
-                new Idea{ IdeaTitle = "Title 5", IdeaText = "This is a test note 5!", NoteDateTime = DateTime.Now.AddMinutes(rand.Next(5,20)) },
-            };
         }
 
         private void NewIdea()
         {
             _navigationService.NavigateAsync(nameof(NewIdeaPage));
+        }
+
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+
+            if (parameters.GetNavigationMode() == NavigationMode.Back)
+            {
+                if (parameters.ContainsKey(nameof(Idea)))
+                {
+                   NoteList.Add((Idea)parameters[nameof(Idea)]);
+
+                    RaisePropertyChanged(nameof(NoteList));
+                    RaisePropertyChanged(nameof(IsEmptyNoteList));
+                }
+            }
         }
     }
 }

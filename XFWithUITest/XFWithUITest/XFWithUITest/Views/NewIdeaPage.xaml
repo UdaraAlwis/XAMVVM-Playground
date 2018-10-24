@@ -3,19 +3,23 @@
     x:Class="XFWithUITest.Views.NewIdeaPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:iOsSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     xmlns:system="clr-namespace:System;assembly=netstandard"
     Title="New Idea"
+    iOsSpecific:Page.UseSafeArea="True"
     mvvm:ViewModelLocator.AutowireViewModel="True"
     BackgroundColor="White">
     <ContentPage.Content>
         <Grid RowSpacing="5">
 
-            <Entry
+            <Editor
                 Grid.Row="0"
                 Margin="10,0,0,0"
+                AutoSize="TextChanges"
                 FontSize="Large"
                 Placeholder="title..."
+                Text="{Binding Idea.IdeaTitle}"
                 TextColor="#494c50" />
 
             <Editor
@@ -23,6 +27,7 @@
                 Margin="10,0,0,0"
                 FontSize="Large"
                 Placeholder="whatever your idea..."
+                Text="{Binding Idea.IdeaText}"
                 TextColor="#797f86" />
 
             <Label

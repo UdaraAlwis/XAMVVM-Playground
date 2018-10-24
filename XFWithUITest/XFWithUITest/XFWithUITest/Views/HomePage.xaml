@@ -3,8 +3,10 @@
     x:Class="XFWithUITest.Views.HomePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     Title="Ideapad"
+    ios:Page.UseSafeArea="True"
     prism:ViewModelLocator.AutowireViewModel="True"
     BackgroundColor="White">
     <ContentPage.Content>
@@ -32,6 +34,12 @@
                                 CornerRadius="8"
                                 HasShadow="True"
                                 IsClippedToBounds="True">
+                                <Frame.BorderColor>
+                                    <OnPlatform x:TypeArguments="Color">
+                                        <OnPlatform.Android>Default</OnPlatform.Android>
+                                        <OnPlatform.iOS>DimGray</OnPlatform.iOS>
+                                    </OnPlatform>
+                                </Frame.BorderColor>
                                 <Grid>
                                     <Label
                                         Grid.Row="0"
@@ -54,6 +62,35 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
+            <Frame
+                Grid.Row="1"
+                Margin="5,10,5,10"
+                Padding="10,10,10,10"
+                CornerRadius="8"
+                HasShadow="True"
+                IsClippedToBounds="True"
+                IsVisible="{Binding IsEmptyNoteList}">
+                <Frame.BorderColor>
+                    <OnPlatform x:TypeArguments="Color">
+                        <OnPlatform.Android>Default</OnPlatform.Android>
+                        <OnPlatform.iOS>DimGray</OnPlatform.iOS>
+                    </OnPlatform>
+                </Frame.BorderColor>
+                <Grid>
+                    <Label
+                        Grid.Row="0"
+                        FontSize="Large"
+                        HorizontalTextAlignment="Center"
+                        Text="Let's start by adding a new Idea..."
+                        TextColor="#797f86"
+                        VerticalOptions="CenterAndExpand" />
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                </Grid>
+            </Frame>
 
             <Button
                 Grid.Row="2"
