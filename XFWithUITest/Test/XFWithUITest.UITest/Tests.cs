@@ -29,6 +29,7 @@ namespace XFWithUITest.UITest
         public void WelcomeTextIsDisplayed()
         {
             AppResult[] results = app.WaitForElement(c => c.Marked("Hey there, Welcome!"));
+
             app.Screenshot("Welcome screen.");
 
             Assert.IsTrue(results.Any());

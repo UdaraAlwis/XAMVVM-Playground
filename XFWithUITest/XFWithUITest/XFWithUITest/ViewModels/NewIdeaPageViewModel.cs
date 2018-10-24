@@ -4,6 +4,7 @@ using System.Text;
 using Prism.Commands;
 using Prism.Navigation;
 using Unity;
+using Xamarin.Forms;
 using XFWithUITest.Models;
 
 namespace XFWithUITest.ViewModels
@@ -33,7 +34,7 @@ namespace XFWithUITest.ViewModels
             // Timer ended
 
             Idea.NoteDateTime = DateTime.Now;
-            
+
             _navigationService.GoBackAsync(new NavigationParameters()
             {
                 { nameof(Idea), Idea }

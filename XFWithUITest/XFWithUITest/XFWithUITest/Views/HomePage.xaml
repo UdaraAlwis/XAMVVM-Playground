@@ -8,6 +8,7 @@
     Title="Ideapad"
     ios:Page.UseSafeArea="True"
     prism:ViewModelLocator.AutowireViewModel="True"
+    AutomationId="HomePage"
     BackgroundColor="White">
     <ContentPage.Content>
         <Grid RowSpacing="5">

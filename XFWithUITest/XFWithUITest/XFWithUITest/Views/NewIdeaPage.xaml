@@ -9,6 +9,7 @@
     Title="New Idea"
     iOsSpecific:Page.UseSafeArea="True"
     mvvm:ViewModelLocator.AutowireViewModel="True"
+    AutomationId="NewIdeaPage"
     BackgroundColor="White">
     <ContentPage.Content>
         <Grid RowSpacing="5">
