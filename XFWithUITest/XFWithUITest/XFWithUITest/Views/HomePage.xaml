@@ -37,8 +37,8 @@
                                 IsClippedToBounds="True">
                                 <Frame.BorderColor>
                                     <OnPlatform x:TypeArguments="Color">
-                                        <OnPlatform.Android>Default</OnPlatform.Android>
-                                        <OnPlatform.iOS>DimGray</OnPlatform.iOS>
+                                        <On Platform="Android">Default</On>
+                                        <On Platform="iOS">DimGray</On>
                                     </OnPlatform>
                                 </Frame.BorderColor>
                                 <Grid>
@@ -74,8 +74,8 @@
                 IsVisible="{Binding IsEmptyNoteList}">
                 <Frame.BorderColor>
                     <OnPlatform x:TypeArguments="Color">
-                        <OnPlatform.Android>Default</OnPlatform.Android>
-                        <OnPlatform.iOS>DimGray</OnPlatform.iOS>
+                        <On Platform="Android">Default</On>
+                        <On Platform="iOS">DimGray</On>
                     </OnPlatform>
                 </Frame.BorderColor>
                 <Grid>
@@ -97,6 +97,7 @@
                 Grid.Row="2"
                 BackgroundColor="DodgerBlue"
                 Command="{Binding NewIdeaCommand}"
+                CornerRadius="0"
                 FontSize="Large"
                 Text="New Idea"
                 TextColor="White" />

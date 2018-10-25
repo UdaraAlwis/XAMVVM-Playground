@@ -15,33 +15,42 @@
         <Grid RowSpacing="5">
 
             <Editor
+                x:Name="IdeaTitleEditor"
                 Grid.Row="0"
-                Margin="10,0,0,0"
+                Margin="10,5,0,0"
                 AutoSize="TextChanges"
+                AutomationId="IdeaTitleEditor"
                 FontSize="Large"
                 Placeholder="title..."
                 Text="{Binding Idea.IdeaTitle}"
                 TextColor="#494c50" />
 
             <Editor
+                x:Name="IdeaTextEditor"
                 Grid.Row="1"
                 Margin="10,0,0,0"
+                AutomationId="IdeaTextEditor"
                 FontSize="Large"
                 Placeholder="whatever your idea..."
                 Text="{Binding Idea.IdeaText}"
                 TextColor="#797f86" />
 
             <Label
+                x:Name="TimeLabel"
                 Grid.Row="2"
                 Margin="10,0,0,0"
+                AutomationId="TimeLabel"
                 FontSize="Medium"
-                Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat='{0:dddd, dd MMMM yyyy HH:mm:ss}'}"
+                Text="{Binding Idea.NoteDateTime, StringFormat='{0:dddd, dd MMMM yyyy HH:mm:ss}', Mode=TwoWay}"
                 TextColor="#c9cccf" />
 
             <Button
+                x:Name="SaveIdeaButton"
                 Grid.Row="3"
+                AutomationId="SaveIdeaButton"
                 BackgroundColor="DodgerBlue"
                 Command="{Binding SaveIdeaCommand}"
+                CornerRadius="0"
                 FontSize="Large"
                 Text="Save"
                 TextColor="White" />

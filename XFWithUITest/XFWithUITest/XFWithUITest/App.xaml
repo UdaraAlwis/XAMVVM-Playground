@@ -1,11 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
-             x:Class="XFWithUITest.App">
-	<Application.Resources>
+<prism:PrismApplication
+    x:Class="XFWithUITest.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms">
+    <Application.Resources>
 
-		<!-- Application resource dictionary -->
+        <!--  Application resource dictionary  -->
+        <ResourceDictionary>
 
-	</Application.Resources>
+            <!--  Styles  -->
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="DodgerBlue" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+            <!--  Styles  -->
+
+        </ResourceDictionary>
+
+    </Application.Resources>
 </prism:PrismApplication>

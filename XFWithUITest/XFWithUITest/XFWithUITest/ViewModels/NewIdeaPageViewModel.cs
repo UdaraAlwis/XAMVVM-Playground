@@ -12,17 +12,16 @@ namespace XFWithUITest.ViewModels
     public class NewIdeaPageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
-
-        private IUnityContainer _unityContainer;
+        
+        private bool _isTimerEnabled;
 
         public Idea Idea { get; set; }
 
         public DelegateCommand SaveIdeaCommand { get; set; }
 
-        public NewIdeaPageViewModel(INavigationService navigationService, IUnityContainer unityContainer) : base(navigationService)
+        public NewIdeaPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             this._navigationService = navigationService;
-            this._unityContainer = unityContainer;
 
             Idea = new Idea();
 
@@ -31,7 +30,12 @@ namespace XFWithUITest.ViewModels
 
         private void SaveIdea()
         {
+            if (string.IsNullOrEmpty(Idea.IdeaTitle) || string.IsNullOrEmpty(Idea.IdeaText) ||
+                string.IsNullOrWhiteSpace(Idea.IdeaTitle) || string.IsNullOrWhiteSpace(Idea.IdeaText))
+                return;
+
             // Timer ended
+            _isTimerEnabled = false;
 
             Idea.NoteDateTime = DateTime.Now;
 
@@ -45,7 +49,27 @@ namespace XFWithUITest.ViewModels
         {
             base.OnNavigatedTo(parameters);
 
+            _isTimerEnabled = true;
+
             // Timer started
+            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+            {
+                Idea.NoteDateTime = DateTime.Now;
+                
+                if (_isTimerEnabled)
+                    return true;
+                else
+                {
+                    return false;
+                }
+            });
+        }
+
+        public override void OnNavigatedFrom(INavigationParameters parameters)
+        {
+            base.OnNavigatedFrom(parameters);
+
+            _isTimerEnabled = false;
         }
     }
 }
