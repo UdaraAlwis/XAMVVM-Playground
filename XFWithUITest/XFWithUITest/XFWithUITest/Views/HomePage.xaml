@@ -59,6 +59,14 @@
                                     </Grid.RowDefinitions>
                                 </Grid>
                             </Frame>
+
+                            <ViewCell.ContextActions>
+                                <MenuItem
+                                    Command="{Binding Path=BindingContext.DeleteIdeaCommand, Source={x:Reference NoteListView}}"
+                                    CommandParameter="{Binding .}"
+                                    IsDestructive="True"
+                                    Text="Delete" />
+                            </ViewCell.ContextActions>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

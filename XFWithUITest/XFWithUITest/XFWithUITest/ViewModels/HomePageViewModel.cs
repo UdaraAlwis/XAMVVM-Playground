@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 using XFWithUITest.Models;
@@ -22,6 +23,8 @@ namespace XFWithUITest.ViewModels
 
         public DelegateCommand NewIdeaCommand { get; set; }
 
+        public DelegateCommand<Idea> DeleteIdeaCommand { get; set; }
+
         public HomePageViewModel(INavigationService navigationService)
              : base(navigationService)
         {
@@ -30,6 +33,19 @@ namespace XFWithUITest.ViewModels
             NoteList = new ObservableCollection<Idea>();
 
             NewIdeaCommand = new DelegateCommand(NewIdea);
+
+            DeleteIdeaCommand = new DelegateCommand<Idea>(DeleteIdea);
+        }
+
+        private async void DeleteIdea(Idea idea)
+        {
+            NoteList.Remove(idea);
+
+            await SaveDataToDiskAsync();
+
+            // update UI
+            RaisePropertyChanged(nameof(NoteList));
+            RaisePropertyChanged(nameof(IsEmptyNoteList));
         }
 
         private void NewIdea()
@@ -47,11 +63,8 @@ namespace XFWithUITest.ViewModels
                 {
                     NoteList.Add((Idea)parameters[nameof(Idea)]);
 
-                    // Saving data to storage
-                    var jsonValueToSave = JsonConvert.SerializeObject(NoteList);
-                    Application.Current.Properties[$"{nameof(NoteList)}_STRING"] = jsonValueToSave;
-                    await Application.Current.SavePropertiesAsync();
-                    
+                    await SaveDataToDiskAsync();
+
                     // update UI
                     RaisePropertyChanged(nameof(NoteList));
                     RaisePropertyChanged(nameof(IsEmptyNoteList));
@@ -70,6 +83,14 @@ namespace XFWithUITest.ViewModels
                     RaisePropertyChanged(nameof(IsEmptyNoteList));
                 }
             }
+        }
+
+        private async Task SaveDataToDiskAsync()
+        {
+            // Saving data to storage
+            var jsonValueToSave = JsonConvert.SerializeObject(NoteList);
+            Application.Current.Properties[$"{nameof(NoteList)}_STRING"] = jsonValueToSave;
+            await Application.Current.SavePropertiesAsync();
         }
     }
 }
