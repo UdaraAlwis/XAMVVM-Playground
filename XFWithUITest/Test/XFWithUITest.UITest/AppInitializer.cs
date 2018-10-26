@@ -16,7 +16,9 @@ namespace XFWithUITest.UITest
                     .StartApp(AppDataMode.Clear);
             }
 
-            return ConfigureApp.iOS.StartApp();
+            return ConfigureApp.iOS
+                    .InstalledApp("com.udara.xfwithuitest")
+                    .StartApp(AppDataMode.Clear);
         }
     }
 }
