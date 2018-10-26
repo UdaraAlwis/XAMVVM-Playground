@@ -1,5 +1,6 @@
 ﻿using System;
 using Xamarin.UITest;
+using Xamarin.UITest.Configuration;
 using Xamarin.UITest.Queries;
 
 namespace XFWithUITest.UITest
@@ -12,7 +13,7 @@ namespace XFWithUITest.UITest
             {
                 return ConfigureApp.Android
                     .InstalledApp("com.udara.xfwithuitest")
-                    .StartApp();
+                    .StartApp(AppDataMode.Clear);
             }
 
             return ConfigureApp.iOS.StartApp();

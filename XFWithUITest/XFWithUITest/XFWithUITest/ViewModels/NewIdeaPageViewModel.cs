@@ -19,6 +19,8 @@ namespace XFWithUITest.ViewModels
 
         public DelegateCommand SaveIdeaCommand { get; set; }
 
+        public DateTime StartTime { get; set; }
+
         public NewIdeaPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             this._navigationService = navigationService;
@@ -36,8 +38,10 @@ namespace XFWithUITest.ViewModels
 
             // Timer ended
             _isTimerEnabled = false;
+            
+            Idea.IdeaDateTime = DateTime.Now;
 
-            Idea.NoteDateTime = DateTime.Now;
+            Idea.IdeaTimeSpan = Idea.IdeaDateTime.Subtract(StartTime);
 
             _navigationService.GoBackAsync(new NavigationParameters()
             {
@@ -51,10 +55,12 @@ namespace XFWithUITest.ViewModels
 
             _isTimerEnabled = true;
 
+            StartTime = DateTime.Now;
+
             // Timer started
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
-                Idea.NoteDateTime = DateTime.Now;
+                Idea.IdeaDateTime = DateTime.Now;
                 
                 if (_isTimerEnabled)
                     return true;

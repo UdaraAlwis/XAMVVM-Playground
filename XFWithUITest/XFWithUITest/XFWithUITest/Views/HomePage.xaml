@@ -23,6 +23,7 @@
             <ListView
                 x:Name="NoteListView"
                 Grid.Row="1"
+                AutomationId="NoteListView"
                 HasUnevenRows="True"
                 ItemsSource="{Binding NoteList}"
                 SeparatorVisibility="None">
@@ -89,6 +90,7 @@
                 <Grid>
                     <Label
                         Grid.Row="0"
+                        AutomationId="EmptyListIndicatorLabel"
                         FontSize="Large"
                         HorizontalTextAlignment="Center"
                         Text="Let's start by adding a new Idea..."
@@ -103,6 +105,7 @@
 
             <Button
                 Grid.Row="2"
+                AutomationId="NewIdeaButton"
                 BackgroundColor="DodgerBlue"
                 Command="{Binding NewIdeaCommand}"
                 CornerRadius="0"

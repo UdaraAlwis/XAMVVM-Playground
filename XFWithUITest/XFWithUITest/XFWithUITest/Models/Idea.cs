@@ -9,7 +9,8 @@ namespace XFWithUITest.Models
     {
         private string _ideaTitle;
         private string _ideaText;
-        private DateTime _noteDateTime;
+        private DateTime _ideaDateTime;
+        private TimeSpan _ideaTimeSpan;
 
         public string IdeaTitle
         {
@@ -23,10 +24,16 @@ namespace XFWithUITest.Models
             set => SetProperty(ref _ideaText, value);
         }
 
-        public DateTime NoteDateTime
+        public DateTime IdeaDateTime
         {
-            get => _noteDateTime;
-            set => SetProperty(ref _noteDateTime, value);
+            get => _ideaDateTime;
+            set => SetProperty(ref _ideaDateTime, value);
+        }
+        
+        public TimeSpan IdeaTimeSpan
+        {
+            get => _ideaTimeSpan;
+            set => SetProperty(ref _ideaTimeSpan, value);
         }
     }
 }
