@@ -1,38 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="XFWithUITest.Views.NewIdeaPage"
+    x:Class="XFWithUITest.Views.NewTextPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:iOsSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-    xmlns:system="clr-namespace:System;assembly=netstandard"
-    Title="New Idea"
+    Title="New Text"
     iOsSpecific:Page.UseSafeArea="True"
     mvvm:ViewModelLocator.AutowireViewModel="True"
-    AutomationId="NewIdeaPage"
+    AutomationId="NewTextPage"
     BackgroundColor="White">
     <ContentPage.Content>
         <Grid RowSpacing="5">
 
             <Editor
-                x:Name="IdeaTitleEditor"
+                x:Name="TextTitleEditor"
                 Grid.Row="0"
                 Margin="10,5,0,0"
                 AutoSize="TextChanges"
-                AutomationId="IdeaTitleEditor"
+                AutomationId="TextTitleEditor"
                 FontSize="Large"
                 Placeholder="title..."
-                Text="{Binding Idea.IdeaTitle}"
+                Text="{Binding TextItem.TextTitle}"
                 TextColor="#494c50" />
 
             <Editor
-                x:Name="IdeaTextEditor"
+                x:Name="TextTextEditor"
                 Grid.Row="1"
                 Margin="10,0,0,0"
-                AutomationId="IdeaTextEditor"
+                AutomationId="TextTextEditor"
                 FontSize="Large"
-                Placeholder="whatever your idea..."
-                Text="{Binding Idea.IdeaText}"
+                Placeholder="whatever your Text..."
+                Text="{Binding TextItem.Text}"
                 TextColor="#797f86" />
 
             <Label
@@ -41,15 +40,15 @@
                 Margin="10,0,0,0"
                 AutomationId="TimeLabel"
                 FontSize="Medium"
-                Text="{Binding Idea.IdeaDateTime, StringFormat='{0:dddd, dd MMMM yyyy HH:mm:ss}', Mode=TwoWay}"
+                Text="{Binding TextItem.TextDateTime, StringFormat='{0:dddd, dd MMMM yyyy HH:mm:ss}', Mode=TwoWay}"
                 TextColor="#c9cccf" />
 
             <Button
-                x:Name="SaveIdeaButton"
+                x:Name="SaveTextButton"
                 Grid.Row="3"
-                AutomationId="SaveIdeaButton"
+                AutomationId="SaveTextButton"
                 BackgroundColor="DodgerBlue"
-                Command="{Binding SaveIdeaCommand}"
+                Command="{Binding SaveTextCommand}"
                 CornerRadius="0"
                 FontSize="Large"
                 Text="Save"

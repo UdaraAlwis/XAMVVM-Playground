@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-    Title="Ideapad"
+    Title="Textpad"
     ios:Page.UseSafeArea="True"
     prism:ViewModelLocator.AutowireViewModel="True"
     AutomationId="HomePage"
@@ -21,11 +21,11 @@
                 Text="Hey there, Welcome!" />
 
             <ListView
-                x:Name="NoteListView"
+                x:Name="TextListView"
                 Grid.Row="1"
-                AutomationId="NoteListView"
+                AutomationId="TextListView"
                 HasUnevenRows="True"
-                ItemsSource="{Binding NoteList}"
+                ItemsSource="{Binding TextList}"
                 SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -46,17 +46,17 @@
                                     <Label
                                         Grid.Row="0"
                                         FontSize="Large"
-                                        Text="{Binding IdeaTitle}"
+                                        Text="{Binding TextTitle}"
                                         TextColor="#494c50" />
                                     <Label
                                         Grid.Row="1"
                                         FontSize="Small"
-                                        Text="{Binding IdeaText}"
+                                        Text="{Binding Text}"
                                         TextColor="#797f86" />
                                     <Label
                                         Grid.Row="2"
                                         FontSize="Micro"
-                                        Text="{Binding IdeaDateTime, StringFormat='{0:dddd, dd MMMM yyyy HH:mm:ss}'}"
+                                        Text="{Binding TextDateTime, StringFormat='{0:dddd, dd MMMM yyyy HH:mm:ss}'}"
                                         TextColor="#797f86" />
 
                                     <Grid.RowDefinitions>
@@ -69,7 +69,7 @@
 
                             <ViewCell.ContextActions>
                                 <MenuItem
-                                    Command="{Binding Path=BindingContext.DeleteIdeaCommand, Source={x:Reference NoteListView}}"
+                                    Command="{Binding Path=BindingContext.DeleteTextCommand, Source={x:Reference TextListView}}"
                                     CommandParameter="{Binding .}"
                                     IsDestructive="True"
                                     Text="Delete" />
@@ -86,7 +86,7 @@
                 CornerRadius="8"
                 HasShadow="True"
                 IsClippedToBounds="True"
-                IsVisible="{Binding IsEmptyNoteList}">
+                IsVisible="{Binding IsEmptyTextList}">
                 <Frame.BorderColor>
                     <OnPlatform x:TypeArguments="Color">
                         <On Platform="Android">Default</On>
@@ -99,7 +99,7 @@
                         AutomationId="EmptyListIndicatorLabel"
                         FontSize="Large"
                         HorizontalTextAlignment="Center"
-                        Text="Let's start by adding a new Idea..."
+                        Text="Let's start by adding a new Text..."
                         TextColor="#797f86"
                         VerticalOptions="CenterAndExpand" />
 
@@ -111,12 +111,12 @@
 
             <Button
                 Grid.Row="2"
-                AutomationId="NewIdeaButton"
+                AutomationId="NewTextButton"
                 BackgroundColor="DodgerBlue"
-                Command="{Binding NewIdeaCommand}"
+                Command="{Binding NewTextCommand}"
                 CornerRadius="0"
                 FontSize="Large"
-                Text="New Idea"
+                Text="New Text"
                 TextColor="White" />
 
             <Grid.RowDefinitions>

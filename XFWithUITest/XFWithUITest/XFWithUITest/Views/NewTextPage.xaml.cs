@@ -4,9 +4,9 @@ using Xamarin.Forms.Xaml;
 namespace XFWithUITest.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NewIdeaPage : ContentPage
+	public partial class NewTextPage : ContentPage
 	{
-		public NewIdeaPage()
+		public NewTextPage()
 		{
 			InitializeComponent ();
 		}
@@ -15,7 +15,7 @@ namespace XFWithUITest.Views
 	    {
 	        base.OnAppearing();
 
-	        IdeaTitleEditor.Focus();
+	        TextTitleEditor.Focus();
 	    }
 	}
 }

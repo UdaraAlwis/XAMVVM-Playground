@@ -17,40 +17,40 @@ namespace XFWithUITest.ViewModels
     {
         private readonly INavigationService _navigationService;
 
-        public ObservableCollection<Idea> NoteList { get; set; }
+        public ObservableCollection<TextItem> TextList { get; set; }
 
-        public bool IsEmptyNoteList => NoteList == null || NoteList.Count == 0;
+        public bool IsEmptyTextList => TextList == null || TextList.Count == 0;
 
-        public DelegateCommand NewIdeaCommand { get; set; }
+        public DelegateCommand NewTextCommand { get; set; }
 
-        public DelegateCommand<Idea> DeleteIdeaCommand { get; set; }
+        public DelegateCommand<TextItem> DeleteTextCommand { get; set; }
 
         public HomePageViewModel(INavigationService navigationService)
              : base(navigationService)
         {
             this._navigationService = navigationService;
 
-            NoteList = new ObservableCollection<Idea>();
+            TextList = new ObservableCollection<TextItem>();
 
-            NewIdeaCommand = new DelegateCommand(NewIdea);
+            NewTextCommand = new DelegateCommand(NewText);
 
-            DeleteIdeaCommand = new DelegateCommand<Idea>(DeleteIdea);
+            DeleteTextCommand = new DelegateCommand<TextItem>(DeleteText);
         }
 
-        private async void DeleteIdea(Idea idea)
+        private async void DeleteText(TextItem textItem)
         {
-            NoteList.Remove(idea);
+            TextList.Remove(textItem);
 
             await SaveDataToDiskAsync();
 
             // update UI
-            RaisePropertyChanged(nameof(NoteList));
-            RaisePropertyChanged(nameof(IsEmptyNoteList));
+            RaisePropertyChanged(nameof(TextList));
+            RaisePropertyChanged(nameof(IsEmptyTextList));
         }
 
-        private void NewIdea()
+        private void NewText()
         {
-            _navigationService.NavigateAsync(nameof(NewIdeaPage));
+            _navigationService.NavigateAsync(nameof(NewTextPage));
         }
 
         public override async void OnNavigatedTo(INavigationParameters parameters)
@@ -59,28 +59,28 @@ namespace XFWithUITest.ViewModels
 
             if (parameters.GetNavigationMode() == NavigationMode.Back)
             {
-                if (parameters.ContainsKey(nameof(Idea)))
+                if (parameters.ContainsKey(nameof(TextItem)))
                 {
-                    NoteList.Add((Idea)parameters[nameof(Idea)]);
+                    TextList.Add((TextItem)parameters[nameof(TextItem)]);
 
                     await SaveDataToDiskAsync();
 
                     // update UI
-                    RaisePropertyChanged(nameof(NoteList));
-                    RaisePropertyChanged(nameof(IsEmptyNoteList));
+                    RaisePropertyChanged(nameof(TextList));
+                    RaisePropertyChanged(nameof(IsEmptyTextList));
                 }
             }
             else if (parameters.GetNavigationMode() == NavigationMode.New)
             {
-                if (!Application.Current.Properties.ContainsKey($"{nameof(NoteList)}_STRING"))
+                if (!Application.Current.Properties.ContainsKey($"{nameof(TextList)}_STRING"))
                     return;
 
-                var jsonValue = Application.Current.Properties[$"{nameof(NoteList)}_STRING"];
+                var jsonValue = Application.Current.Properties[$"{nameof(TextList)}_STRING"];
                 if (jsonValue != null)
                 {
-                    NoteList = JsonConvert.DeserializeObject<ObservableCollection<Idea>>(jsonValue.ToString());
-                    RaisePropertyChanged(nameof(NoteList));
-                    RaisePropertyChanged(nameof(IsEmptyNoteList));
+                    TextList = JsonConvert.DeserializeObject<ObservableCollection<TextItem>>(jsonValue.ToString());
+                    RaisePropertyChanged(nameof(TextList));
+                    RaisePropertyChanged(nameof(IsEmptyTextList));
                 }
             }
         }
@@ -88,8 +88,8 @@ namespace XFWithUITest.ViewModels
         private async Task SaveDataToDiskAsync()
         {
             // Saving data to storage
-            var jsonValueToSave = JsonConvert.SerializeObject(NoteList);
-            Application.Current.Properties[$"{nameof(NoteList)}_STRING"] = jsonValueToSave;
+            var jsonValueToSave = JsonConvert.SerializeObject(TextList);
+            Application.Current.Properties[$"{nameof(TextList)}_STRING"] = jsonValueToSave;
             await Application.Current.SavePropertiesAsync();
         }
     }

@@ -44,62 +44,62 @@ namespace XFWithUITest.UITest
         [Test]
         public void EmptyListDisplayedTest()
         {
-            AppResult[] emptyListLabelExisits = app.WaitForElement(c => c.Text("Let's start by adding a new Idea..."));
+            AppResult[] emptyListLabelExists = app.WaitForElement(c => c.Text("Let's start by adding a new Text..."));
 
-            Assert.IsTrue(emptyListLabelExisits.Any());
+            Assert.IsTrue(emptyListLabelExists.Any());
         }
         
         [Test]
-        public void CreateNewIdeaTest()
+        public void CreateNewTextTest()
         {
-            AppResult[] newIdeaButtonExists = app.WaitForElement(c => c.Text("New Idea"));
-            Assert.IsTrue(newIdeaButtonExists.Any());
+            AppResult[] newTextButtonExists = app.WaitForElement(c => c.Text("New Text"));
+            Assert.IsTrue(newTextButtonExists.Any());
 
             for (int i = 0; i < 5; i++)
             {
-                CreateNewIdeaSteps();
-                AfterCreateNewIdeaSteps();
+                CreateNewTextSteps();
+                AfterCreateNewTextSteps();
             }
         }
 
-        private void CreateNewIdeaSteps()
+        private void CreateNewTextSteps()
         {
-            app.Tap(c => c.Button("New Idea"));
+            app.Tap(c => c.Button("New Text"));
 
-            AppResult[] newIdeaPageExists = app.WaitForElement(c => c.Marked("NewIdeaPage"));
-            Assert.IsTrue(newIdeaPageExists.Any());
+            AppResult[] newTextPageExists = app.WaitForElement(c => c.Marked("NewTextPage"));
+            Assert.IsTrue(newTextPageExists.Any());
 
-            AppResult[] ideaTitleEditorExists = app.WaitForElement(c => c.Marked("IdeaTitleEditor"));
-            Assert.IsTrue(ideaTitleEditorExists.Any());
+            AppResult[] textTitleEditorExists = app.WaitForElement(c => c.Marked("TextTitleEditor"));
+            Assert.IsTrue(textTitleEditorExists.Any());
             
             var faker = new Faker("en");
             var random = new Random();
-            var sentence = faker.Lorem.Sentence(2, random.Next(10));
+            var sentence = faker.Lorem.Sentence(4, random.Next(12));
             var paragraph = faker.Lorem.Paragraph(1);
 
-            app.EnterText(c => c.Marked("IdeaTitleEditor"),
+            app.EnterText(c => c.Marked("TextTitleEditor"),
                 sentence);
 
-            AppResult[] ideaTextEditorExists = app.WaitForElement(c => c.Marked("IdeaTextEditor"));
-            Assert.IsTrue(ideaTextEditorExists.Any());
+            AppResult[] textTextEditorExists = app.WaitForElement(c => c.Marked("TextTextEditor"));
+            Assert.IsTrue(textTextEditorExists.Any());
 
-            app.EnterText(c => c.Marked("IdeaTextEditor"),
+            app.EnterText(c => c.Marked("TextTextEditor"),
                 paragraph);
 
-            AppResult[] saveIdeaButtonExists = app.WaitForElement(c => c.Text("Save"));
-            Assert.IsTrue(saveIdeaButtonExists.Any());
+            AppResult[] saveTextButtonExists = app.WaitForElement(c => c.Text("Save"));
+            Assert.IsTrue(saveTextButtonExists.Any());
 
             app.Tap(c => c.Button("Save"));
         }
 
-        private void AfterCreateNewIdeaSteps()
+        private void AfterCreateNewTextSteps()
         {
             AppResult[] homePageExists = app.WaitForElement(c => c.Marked("HomePage"));
             Assert.IsTrue(homePageExists.Any());
 
-            app.WaitForNoElement(c => c.Text("Let's start by adding a new Idea..."));
+            app.WaitForNoElement(c => c.Text("Let's start by adding a new Text..."));
             
-            Assert.Greater(app.Query(c => c.Marked("NoteListView").Child()).Length, 0);
+            Assert.Greater(app.Query(c => c.Marked("TextListView").Child()).Length, 0);
         }
     }
 }

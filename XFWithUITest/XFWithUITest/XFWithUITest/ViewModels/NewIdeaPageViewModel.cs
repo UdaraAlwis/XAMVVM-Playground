@@ -9,39 +9,39 @@ using XFWithUITest.Models;
 
 namespace XFWithUITest.ViewModels
 {
-    public class NewIdeaPageViewModel : ViewModelBase
+    public class NewTextPageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
         
         private bool _isTimerEnabled;
 
-        public Idea Idea { get; set; }
+        public TextItem TextItem { get; set; }
 
-        public DelegateCommand SaveIdeaCommand { get; set; }
+        public DelegateCommand SaveTextCommand { get; set; }
         
-        public NewIdeaPageViewModel(INavigationService navigationService) : base(navigationService)
+        public NewTextPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             this._navigationService = navigationService;
 
-            Idea = new Idea();
+            TextItem = new TextItem();
 
-            SaveIdeaCommand = new DelegateCommand(SaveIdea);
+            SaveTextCommand = new DelegateCommand(SaveText);
         }
 
-        private void SaveIdea()
+        private void SaveText()
         {
-            if (string.IsNullOrEmpty(Idea.IdeaTitle) || string.IsNullOrEmpty(Idea.IdeaText) ||
-                string.IsNullOrWhiteSpace(Idea.IdeaTitle) || string.IsNullOrWhiteSpace(Idea.IdeaText))
+            if (string.IsNullOrEmpty(TextItem.TextTitle) || string.IsNullOrEmpty(TextItem.Text) ||
+                string.IsNullOrWhiteSpace(TextItem.TextTitle) || string.IsNullOrWhiteSpace(TextItem.Text))
                 return;
 
             // Timer ended
             _isTimerEnabled = false;
             
-            Idea.IdeaDateTime = DateTime.Now;
+            TextItem.TextDateTime = DateTime.Now;
             
             _navigationService.GoBackAsync(new NavigationParameters()
             {
-                { nameof(Idea), Idea }
+                { nameof(TextItem), TextItem }
             });
         }
 
@@ -54,7 +54,7 @@ namespace XFWithUITest.ViewModels
             // Timer started
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
-                Idea.IdeaDateTime = DateTime.Now;
+                TextItem.TextDateTime = DateTime.Now;
                 
                 if (_isTimerEnabled)
                     return true;
