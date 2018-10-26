@@ -29,11 +29,5 @@ namespace XFWithUITest.Models
             get => _ideaDateTime;
             set => SetProperty(ref _ideaDateTime, value);
         }
-        
-        public TimeSpan IdeaTimeSpan
-        {
-            get => _ideaTimeSpan;
-            set => SetProperty(ref _ideaTimeSpan, value);
-        }
     }
 }

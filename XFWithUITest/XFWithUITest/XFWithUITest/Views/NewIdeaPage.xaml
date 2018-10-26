@@ -41,7 +41,7 @@
                 Margin="10,0,0,0"
                 AutomationId="TimeLabel"
                 FontSize="Medium"
-                Text="{Binding Idea.NoteDateTime, StringFormat='{0:dddd, dd MMMM yyyy HH:mm:ss}', Mode=TwoWay}"
+                Text="{Binding Idea.IdeaDateTime, StringFormat='{0:dddd, dd MMMM yyyy HH:mm:ss}', Mode=TwoWay}"
                 TextColor="#c9cccf" />
 
             <Button
