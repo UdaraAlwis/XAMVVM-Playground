@@ -144,6 +144,9 @@ namespace XFWithUITest.UITest
             app.EnterText(c => c.Marked("TextTextEditor"),
                 paragraph);
 
+            // Hide the keyboard
+            app.DismissKeyboard();
+
             // Click on "Save" Button
             app.Tap(c => c.Button("Save"));
         }
