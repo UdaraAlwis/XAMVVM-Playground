@@ -19,8 +19,9 @@ namespace XFWithUITest.UITest
             }
 
             return ConfigureApp.iOS
-                    .InstalledApp("com.udara.xfwithuitest")
-                    .StartApp(
+                .DeviceIdentifier("F6B5A914-467D-461B-B561-09254F35B665")
+                .InstalledApp("com.udara.xfwithuitest")
+                .StartApp(
                     clearData ?
                         AppDataMode.Clear : AppDataMode.DoNotClear);
         }

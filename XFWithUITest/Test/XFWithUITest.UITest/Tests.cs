@@ -95,15 +95,18 @@ namespace XFWithUITest.UITest
         public void SelectFirstCellInList(int timeoutInSeconds = 20)
         {
             Func<AppQuery, AppQuery> firstCellInList = null;
-
+            
             if (platform == Platform.Android)
                 firstCellInList = x => x.Class("ViewCellRenderer_ViewCellContainer").Index(0);
             else if (platform == Platform.iOS)
-                firstCellInList = x => x.Marked("{AutomationId of ViewCell}").Index(0);
+                firstCellInList = x => x.Marked("TextListViewItem").Index(0);
 
             app.WaitForElement(firstCellInList, "Timed our waiting for the first user to appear", TimeSpan.FromSeconds(timeoutInSeconds));
-            
-            app.TouchAndHold(firstCellInList);
+
+            if (platform == Platform.Android)
+                app.TouchAndHold(firstCellInList);
+            else if (platform == Platform.iOS)
+                app.SwipeRightToLeft(firstCellInList);
         }
 
         private void CreateNewTextSteps()
