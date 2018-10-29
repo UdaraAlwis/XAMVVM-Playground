@@ -7,18 +7,22 @@ namespace XFWithUITest.UITest
 {
     public class AppInitializer
     {
-        public static IApp StartApp(Platform platform)
+        public static IApp StartApp(Platform platform, bool clearData)
         {
             if (platform == Platform.Android)
             {
                 return ConfigureApp.Android
                     .InstalledApp("com.udara.xfwithuitest")
-                    .StartApp(AppDataMode.Clear);
+                    .StartApp(
+                        clearData ? 
+                        AppDataMode.Clear : AppDataMode.DoNotClear);
             }
 
             return ConfigureApp.iOS
                     .InstalledApp("com.udara.xfwithuitest")
-                    .StartApp(AppDataMode.Clear);
+                    .StartApp(
+                    clearData ?
+                        AppDataMode.Clear : AppDataMode.DoNotClear);
         }
     }
 }

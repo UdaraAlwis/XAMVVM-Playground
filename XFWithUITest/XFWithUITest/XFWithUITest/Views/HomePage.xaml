@@ -33,6 +33,7 @@
                             <Frame
                                 Margin="5,10,5,10"
                                 Padding="10,10,10,10"
+                                AutomationId="TextListViewItem"
                                 CornerRadius="8"
                                 HasShadow="True"
                                 IsClippedToBounds="True">
@@ -69,6 +70,7 @@
 
                             <ViewCell.ContextActions>
                                 <MenuItem
+                                    AutomationId="TextListViewItemContextMenu"
                                     Command="{Binding Path=BindingContext.DeleteTextCommand, Source={x:Reference TextListView}}"
                                     CommandParameter="{Binding .}"
                                     IsDestructive="True"
