@@ -13,14 +13,17 @@ namespace XFWithUITest.UITest
             {
                 return ConfigureApp.Android
                     .InstalledApp("com.udara.xfwithuitest")
+                    .EnableLocalScreenshots()
                     .StartApp(
-                        clearData ? 
-                        AppDataMode.Clear : AppDataMode.DoNotClear);
+                        clearData ?
+                            AppDataMode.Clear : AppDataMode.DoNotClear);
             }
 
             return ConfigureApp.iOS
+                // iPhone 6s Plus
                 .DeviceIdentifier("F6B5A914-467D-461B-B561-09254F35B665")
                 .InstalledApp("com.udara.xfwithuitest")
+                .EnableLocalScreenshots()
                 .StartApp(
                     clearData ?
                         AppDataMode.Clear : AppDataMode.DoNotClear);
