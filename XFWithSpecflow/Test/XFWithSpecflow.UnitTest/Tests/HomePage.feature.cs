@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace XFWithSpecflow.UnitTest
+namespace XFWithSpecflow.UnitTest.Tests
 {
     using TechTalk.SpecFlow;
     

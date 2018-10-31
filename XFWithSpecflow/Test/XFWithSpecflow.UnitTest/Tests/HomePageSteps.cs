@@ -12,7 +12,7 @@ using Prism.Ioc;
 using Prism.Mvvm;
 using Prism.Navigation;
 
-namespace XFWithSpecflow.UnitTest
+namespace XFWithSpecflow.UnitTest.Tests
 {
     [Binding]
     public class HomePageSteps

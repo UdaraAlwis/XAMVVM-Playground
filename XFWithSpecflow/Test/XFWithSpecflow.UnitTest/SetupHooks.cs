@@ -4,22 +4,27 @@ using System.Text;
 using TechTalk.SpecFlow;
 using XFWithSpecflow.UnitTest;
 
-namespace XFWithSpecflow
+namespace XFWithSpecflow.UnitTest
 {
     [Binding]
     public class SetupHooks
     {
-        public static TestApp App { get; private set; }
+        // For additional details on SpecFlow hooks see http://go.specflow.org/doc-hooks
 
-        /// <summary>
-        ///     The before scenario.
-        /// </summary>
+        public static TestApp App { get; private set; }
+        
         [BeforeScenario]
         public void BeforeScenario()
         {
             Xamarin.Forms.Mocks.MockForms.Init();
 
             App = new TestApp();
+        }
+
+        [AfterScenario]
+        public void AfterScenario()
+        {
+            //TODO: implement logic that has to run after executing each scenario
         }
     }
 }

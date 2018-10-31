@@ -43,18 +43,9 @@ namespace XFWithSpecflow.UnitTest
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<HomePage>();
             containerRegistry.RegisterForNavigation<NewTextPage>();
-            //containerRegistry.RegisterForNavigation<MyTabbedPage>();
-            //containerRegistry.RegisterForNavigation<TabChild1Page>();
-            //containerRegistry.RegisterForNavigation<TabChild2Page>();
-            //containerRegistry.RegisterForNavigation<TabChild3Page>();
-            //containerRegistry.RegisterForNavigation<DetailPage>();
 
             containerRegistry.GetContainer().RegisterType<HomePageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
             containerRegistry.GetContainer().RegisterType<NewTextPageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
-            //containerRegistry.GetContainer().RegisterType<TabChild1PageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
-            //containerRegistry.GetContainer().RegisterType<TabChild2PageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
-            //containerRegistry.GetContainer().RegisterType<TabChild3PageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
-            //containerRegistry.GetContainer().RegisterType<DetailPageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
         }
     }
 }
