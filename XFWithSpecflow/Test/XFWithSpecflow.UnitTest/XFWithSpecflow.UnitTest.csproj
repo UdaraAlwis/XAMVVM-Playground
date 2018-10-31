@@ -43,14 +43,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SetupHooks.cs" />
-    <Compile Include="HomePage.feature.cs">
+    <Compile Include="Tests\HomePage.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HomePage.feature</DependentUpon>
     </Compile>
-    <Compile Include="HomePageSteps.cs" />
+    <Compile Include="Tests\HomePageSteps.cs" />
     <Compile Include="TestApp.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,7 +79,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="HomePage.feature">
+    <None Include="Tests\HomePage.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>HomePage.feature.cs</LastGenOutput>
     </None>
