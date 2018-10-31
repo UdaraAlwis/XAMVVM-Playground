@@ -9,6 +9,8 @@ using Prism.Navigation;
 using Prism.Unity;
 using Unity;
 using Xamarin.Forms;
+using XFWithSpecflow.ViewModels;
+using XFWithSpecflow.Views;
 
 namespace XFWithSpecflow.UnitTest
 {
@@ -30,7 +32,7 @@ namespace XFWithSpecflow.UnitTest
         protected override async void OnInitialized()
         {
             Xamarin.Forms.Mocks.MockForms.Init();
-
+         
             Container.GetContainer().RegisterInstance<INavigationService>(NavigationService, new Unity.Lifetime.SingletonLifetimeManager());
 
             await NavigationService.NavigateAsync("NavigationPage/HomePage");
@@ -39,15 +41,16 @@ namespace XFWithSpecflow.UnitTest
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            //containerRegistry.RegisterForNavigation<HomePage>();
+            containerRegistry.RegisterForNavigation<HomePage>();
+            containerRegistry.RegisterForNavigation<NewTextPage>();
             //containerRegistry.RegisterForNavigation<MyTabbedPage>();
             //containerRegistry.RegisterForNavigation<TabChild1Page>();
             //containerRegistry.RegisterForNavigation<TabChild2Page>();
             //containerRegistry.RegisterForNavigation<TabChild3Page>();
             //containerRegistry.RegisterForNavigation<DetailPage>();
 
-            //containerRegistry.GetContainer().RegisterType<HomePageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
-            //containerRegistry.GetContainer().RegisterType<MyTabbedPageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
+            containerRegistry.GetContainer().RegisterType<HomePageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
+            containerRegistry.GetContainer().RegisterType<NewTextPageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
             //containerRegistry.GetContainer().RegisterType<TabChild1PageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
             //containerRegistry.GetContainer().RegisterType<TabChild2PageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
             //containerRegistry.GetContainer().RegisterType<TabChild3PageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());

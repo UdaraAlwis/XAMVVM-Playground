@@ -45,7 +45,7 @@ namespace XFWithSpecflow.ViewModels
             });
         }
 
-        public override void OnNavigatedTo(INavigationParameters parameters)
+        public override void OnNavigatedTo(NavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
 
@@ -65,7 +65,7 @@ namespace XFWithSpecflow.ViewModels
             });
         }
 
-        public override void OnNavigatedFrom(INavigationParameters parameters)
+        public override void OnNavigatedFrom(NavigationParameters parameters)
         {
             base.OnNavigatedFrom(parameters);
 
