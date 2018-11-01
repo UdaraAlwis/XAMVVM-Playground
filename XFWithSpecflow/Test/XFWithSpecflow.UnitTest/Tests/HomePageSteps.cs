@@ -24,5 +24,11 @@ namespace XFWithSpecflow.UnitTest.Tests
         {
             App.Container.Resolve<HomePageViewModel>().TextList.Count.ShouldBe(itemCount);
         }
+
+        [Then(@"I can see Empty ListView Label Displayed")]
+        public void ThenICanSeeEmptyListViewLabelDisplayed()
+        {
+            App.Container.Resolve<HomePageViewModel>().IsEmptyTextList.ShouldBe(true);
+        }
     }
 }

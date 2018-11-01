@@ -83,6 +83,8 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("I am on the \"Home\" Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 6
  testRunner.And("I can see 0 Text Items in ListView", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 7
+ testRunner.And("I can see Empty ListView Label Displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
