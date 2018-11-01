@@ -31,6 +31,7 @@ namespace XFWithUITest
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
             containerRegistry.RegisterForNavigation<NewTextPage, NewTextPageViewModel>();
+            containerRegistry.RegisterForNavigation<ViewTextPage, ViewTextPageViewModel>();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace XFWithUITest.ViewModels
 	public class HomePageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
+        private TextItem _selectedTextItem;
 
         public ObservableCollection<TextItem> TextList { get; set; }
 
@@ -24,6 +25,25 @@ namespace XFWithUITest.ViewModels
         public DelegateCommand NewTextCommand { get; set; }
 
         public DelegateCommand<TextItem> DeleteTextCommand { get; set; }
+
+        public TextItem SelectedTextItem
+        {
+            get => _selectedTextItem;
+            set
+            {
+                SetProperty(ref _selectedTextItem, value);
+                
+                if (value != null)
+                {
+                    _navigationService.NavigateAsync(nameof(ViewTextPage), new NavigationParameters()
+                    {
+                        { nameof(TextItem), _selectedTextItem }
+                    });
+
+                    SetProperty(ref _selectedTextItem, null);
+                }
+            }
+        }
 
         public HomePageViewModel(INavigationService navigationService)
              : base(navigationService)
