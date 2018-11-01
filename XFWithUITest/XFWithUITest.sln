@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFWithUITest", "XFWithUITest\XFWithUITest\XFWithUITest.csproj", "{5AD8E6BE-BE5A-48D9-B0CA-29E77377CA16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XFWithUITest", "XFWithUITest\XFWithUITest\XFWithUITest.csproj", "{5AD8E6BE-BE5A-48D9-B0CA-29E77377CA16}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFWithUITest.Android", "XFWithUITest\XFWithUITest.Android\XFWithUITest.Android.csproj", "{6D0A1FFC-1527-4D4B-BD3B-7C6F6C97E681}"
 EndProject
@@ -11,9 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFWithUITest.iOS", "XFWithU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFWithUITest.UWP", "XFWithUITest\XFWithUITest.UWP\XFWithUITest.UWP.csproj", "{7597448F-AB94-4703-BC98-CC70C40AD25E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{55A711AB-8655-46FD-905B-695AC835E46F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{55A711AB-8655-46FD-905B-695AC835E46F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFWithUITest.UITest", "Test\XFWithUITest.UITest\XFWithUITest.UITest.csproj", "{B19C892E-2628-4CA7-AD27-08D406A3B14B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFWithUITest.UITest", "Tests\XFWithUITest.UITest\XFWithUITest.UITest.csproj", "{B19C892E-2628-4CA7-AD27-08D406A3B14B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

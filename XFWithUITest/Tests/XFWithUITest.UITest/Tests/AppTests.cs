@@ -11,9 +11,9 @@ namespace XFWithUITest.UITest.Tests
 {
     [TestFixture(Platform.Android)]
     //[TestFixture(Platform.iOS)]
-    public class BaseTests
+    public class AppTests
     { 
-        public BaseTests(Platform platform)
+        public AppTests(Platform platform)
         {
             SetupHooks.Platform = platform;
         }

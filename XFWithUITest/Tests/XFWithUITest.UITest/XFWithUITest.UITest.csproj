@@ -36,11 +36,10 @@
     <PackageReference Include="NUnitTestAdapter" Version="2.1.1" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseTests.cs" />
+    <Compile Include="SetupHooks.cs" />
+    <Compile Include="Tests\AppTests.cs" />
     <Compile Include="AppInitializer.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
