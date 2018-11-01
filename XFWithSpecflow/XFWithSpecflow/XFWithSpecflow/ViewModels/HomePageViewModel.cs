@@ -9,13 +9,15 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 using XFWithSpecflow.Models;
+using XFWithSpecflow.ViewModels;
 using XFWithSpecflow.Views;
 
 namespace XFWithSpecflow.ViewModels
 {
-	public class HomePageViewModel : ViewModelBase
+    public class HomePageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
+        private TextItem _selectedTextItem;
 
         public ObservableCollection<TextItem> TextList { get; set; }
 
@@ -24,6 +26,25 @@ namespace XFWithSpecflow.ViewModels
         public DelegateCommand NewTextCommand { get; set; }
 
         public DelegateCommand<TextItem> DeleteTextCommand { get; set; }
+
+        public TextItem SelectedTextItem
+        {
+            get => _selectedTextItem;
+            set
+            {
+                SetProperty(ref _selectedTextItem, value);
+
+                if (value != null)
+                {
+                    _navigationService.NavigateAsync(nameof(ViewTextPage), new NavigationParameters()
+                    {
+                        { nameof(TextItem), _selectedTextItem }
+                    });
+
+                    SetProperty(ref _selectedTextItem, null);
+                }
+            }
+        }
 
         public HomePageViewModel(INavigationService navigationService)
              : base(navigationService)
@@ -53,7 +74,7 @@ namespace XFWithSpecflow.ViewModels
             _navigationService.NavigateAsync(nameof(NewTextPage));
         }
 
-        public override async void OnNavigatedTo(NavigationParameters parameters)
+        public override async void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
 

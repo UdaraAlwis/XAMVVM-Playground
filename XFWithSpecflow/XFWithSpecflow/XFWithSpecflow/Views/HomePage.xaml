@@ -26,6 +26,7 @@
                 AutomationId="TextListView"
                 HasUnevenRows="True"
                 ItemsSource="{Binding TextList}"
+                SelectedItem="{Binding SelectedTextItem, Mode=TwoWay}"
                 SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>

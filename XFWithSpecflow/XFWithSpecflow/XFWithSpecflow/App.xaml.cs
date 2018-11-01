@@ -32,6 +32,7 @@ namespace XFWithSpecflow
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<HomePage>();
             containerRegistry.RegisterForNavigation<NewTextPage>();
+            containerRegistry.RegisterForNavigation<ViewTextPage>();
         }
     }
 }

@@ -13,30 +13,28 @@ namespace XFWithUITest.UITest
     //[TestFixture(Platform.iOS)]
     public class Tests
     { 
-        IApp app;
-        Platform platform;
+        private IApp _app;
+        private readonly Platform _platform;
 
         public Tests(Platform platform)
         {
-            this.platform = platform;
+            this._platform = platform;
         }
 
         [SetUp]
         public void BeforeEachTest()
         {
-            app = AppInitializer.StartApp(platform, true);
+            _app = AppInitializer.StartApp(_platform, true);
         }
 
         [Test]
         public void WelcomeTextIsDisplayedTest()
         {
-            AppResult[] homePageExists = app.WaitForElement(c => c.Marked("HomePage"));
-
+            AppResult[] homePageExists = _app.WaitForElement(c => c.Marked("HomePage"));
             Assert.IsTrue(homePageExists.Any());
 
-            AppResult[] welcomeLabelExists = app.WaitForElement(c => c.Text("Hey there, Welcome!"));
-
-            app.Screenshot("Welcome screen.");
+            AppResult[] welcomeLabelExists = _app.WaitForElement(c => c.Text("Hey there, Welcome!"));
+            _app.Screenshot("Welcome screen.");
 
             Assert.IsTrue(welcomeLabelExists.Any());
         }
@@ -44,8 +42,7 @@ namespace XFWithUITest.UITest
         [Test]
         public void EmptyListDisplayedTest()
         {
-            AppResult[] emptyListLabelExists = app.WaitForElement(c => c.Text("Let's start by adding a new Text..."));
-
+            AppResult[] emptyListLabelExists = _app.WaitForElement(c => c.Text("Let's start by adding a new Text..."));
             Assert.IsTrue(emptyListLabelExists.Any());
         }
         
@@ -53,7 +50,7 @@ namespace XFWithUITest.UITest
         public void CreateNewTextTest()
         {
             // Wait for "New Text" Button
-            AppResult[] newTextButtonExists = app.WaitForElement(c => c.Text("New Text"));
+            AppResult[] newTextButtonExists = _app.WaitForElement(c => c.Text("New Text"));
             Assert.IsTrue(newTextButtonExists.Any());
 
             for (int i = 0; i < 5; i++)
@@ -61,6 +58,30 @@ namespace XFWithUITest.UITest
                 CreateNewTextSteps();
                 AfterCreateNewTextSteps();
             }
+        }
+        
+        [Test]
+        public void CreateAndViewTextItemTest()
+        {
+            // create a new Text item
+            CreateNewTextSteps();
+            AfterCreateNewTextSteps();
+
+            // check if new item was added
+            Assert.Greater(_app.Query(c => c.Marked("TextListView").Child()).Length, 0);
+            
+            // get the first item in ListView
+            var firstCellInListView = GetFirstItemInListView();
+
+            // tap the first item in ListView
+            _app.Tap(firstCellInListView);
+
+            // viewing the item
+            AppResult[] viewTextPageExists = _app.WaitForElement(c => c.Marked("ViewTextPage"));
+            Assert.IsTrue(viewTextPageExists.Any());
+
+            // Click on "Done" Button
+            _app.Tap(c => c.Button("Done"));
         }
 
         [Test]
@@ -71,10 +92,10 @@ namespace XFWithUITest.UITest
             AfterCreateNewTextSteps();
 
             // restarting app, persisting state
-            app = AppInitializer.StartApp(platform, false);
+            _app = AppInitializer.StartApp(_platform, false);
 
             // check if data persists
-            Assert.Greater(app.Query(c => c.Marked("TextListView").Child()).Length, 0);
+            Assert.Greater(_app.Query(c => c.Marked("TextListView").Child()).Length, 0);
         }
 
         [Test]
@@ -85,49 +106,54 @@ namespace XFWithUITest.UITest
             AfterCreateNewTextSteps();
             
             // check if data persists
-            Assert.Greater(app.Query(c => c.Marked("TextListView").Child()).Length, 0);
+            Assert.Greater(_app.Query(c => c.Marked("TextListView").Child()).Length, 0);
 
-            SelectFirstCellInList();
-            
-            app.Tap(c => c.Text("Delete"));
+            // get the first item in ListView
+            var firstCellInListView = GetFirstItemInListView();
+
+            // pop up the Context menu in ListView item
+            if (_platform == Platform.Android)
+                _app.TouchAndHold(firstCellInListView);
+            else if (_platform == Platform.iOS)
+                _app.SwipeRightToLeft(firstCellInListView);
+
+            // delete item
+            _app.Tap(c => c.Text("Delete"));
         }
-
-        public void SelectFirstCellInList(int timeoutInSeconds = 20)
+        
+        public Func<AppQuery, AppQuery> GetFirstItemInListView(int timeoutInSeconds = 20)
         {
-            Func<AppQuery, AppQuery> firstCellInList = null;
-            
-            if (platform == Platform.Android)
-                firstCellInList = x => x.Class("ViewCellRenderer_ViewCellContainer").Index(0);
-            else if (platform == Platform.iOS)
-                firstCellInList = x => x.Marked("TextListViewItem").Index(0);
+            Func<AppQuery, AppQuery> firstItemInListView = null;
 
-            app.WaitForElement(firstCellInList, "Timed our waiting for the first user to appear", TimeSpan.FromSeconds(timeoutInSeconds));
+            if (_platform == Platform.Android)
+                firstItemInListView = x => x.Class("ViewCellRenderer_ViewCellContainer").Index(0);
+            else if (_platform == Platform.iOS)
+                firstItemInListView = x => x.Marked("TextListViewItem").Index(0);
 
-            if (platform == Platform.Android)
-                app.TouchAndHold(firstCellInList);
-            else if (platform == Platform.iOS)
-                app.SwipeRightToLeft(firstCellInList);
+            _app.WaitForElement(firstItemInListView, "Timed our waiting for the first user to appear", TimeSpan.FromSeconds(timeoutInSeconds));
+
+            return firstItemInListView;
         }
 
         private void CreateNewTextSteps()
         {
             // Click on "New Text" Button
-            app.Tap(c => c.Button("New Text"));
+            _app.Tap(c => c.Button("New Text"));
 
             // Wait for "New Text" Page
-            AppResult[] newTextPageExists = app.WaitForElement(c => c.Marked("NewTextPage"));
+            AppResult[] newTextPageExists = _app.WaitForElement(c => c.Marked("NewTextPage"));
             Assert.IsTrue(newTextPageExists.Any());
 
             // Wait for "Text Title" Editor
-            AppResult[] textTitleEditorExists = app.WaitForElement(c => c.Marked("TextTitleEditor"));
+            AppResult[] textTitleEditorExists = _app.WaitForElement(c => c.Marked("TextTitleEditor"));
             Assert.IsTrue(textTitleEditorExists.Any());
 
             // Wait for "Text Text" Editor
-            AppResult[] textTextEditorExists = app.WaitForElement(c => c.Marked("TextTextEditor"));
+            AppResult[] textTextEditorExists = _app.WaitForElement(c => c.Marked("TextTextEditor"));
             Assert.IsTrue(textTextEditorExists.Any());
 
             // Wait for "Save" Button
-            AppResult[] saveTextButtonExists = app.WaitForElement(c => c.Text("Save"));
+            AppResult[] saveTextButtonExists = _app.WaitForElement(c => c.Text("Save"));
             Assert.IsTrue(saveTextButtonExists.Any());
 
             // Generate fake text
@@ -137,31 +163,31 @@ namespace XFWithUITest.UITest
             var paragraph = faker.Lorem.Paragraph(1);
 
             // Enter text into "Text Title" Editor
-            app.EnterText(c => c.Marked("TextTitleEditor"),
+            _app.EnterText(c => c.Marked("TextTitleEditor"),
                 sentence);
 
             // Enter text into "Text Text" Editor
-            app.EnterText(c => c.Marked("TextTextEditor"),
+            _app.EnterText(c => c.Marked("TextTextEditor"),
                 paragraph);
 
             // Hide the keyboard
-            app.DismissKeyboard();
+            _app.DismissKeyboard();
 
             // Click on "Save" Button
-            app.Tap(c => c.Button("Save"));
+            _app.Tap(c => c.Button("Save"));
         }
 
         private void AfterCreateNewTextSteps()
         {
             // Wait for "Home" Page
-            AppResult[] homePageExists = app.WaitForElement(c => c.Marked("HomePage"));
+            AppResult[] homePageExists = _app.WaitForElement(c => c.Marked("HomePage"));
             Assert.IsTrue(homePageExists.Any());
 
             // Wait for Empty ListView Label to disappear
-            app.WaitForNoElement(c => c.Text("Let's start by adding a new Text..."));
+            _app.WaitForNoElement(c => c.Text("Let's start by adding a new Text..."));
 
             // Wait for "Home" Page
-            Assert.Greater(app.Query(c => c.Marked("TextListView").Child()).Length, 0);
+            Assert.Greater(_app.Query(c => c.Marked("TextListView").Child()).Length, 0);
         }
     }
 }

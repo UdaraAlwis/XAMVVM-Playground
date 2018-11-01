@@ -20,7 +20,7 @@ namespace XFWithUITest.UITest
             }
 
             return ConfigureApp.iOS
-                // iPhone 6s Plus
+                // iPhone 6s Plus // change the simulator id as you wish
                 .DeviceIdentifier("F6B5A914-467D-461B-B561-09254F35B665")
                 .InstalledApp("com.udara.xfwithuitest")
                 .EnableLocalScreenshots()

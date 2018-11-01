@@ -20,13 +20,14 @@ namespace XFWithSpecflow.UnitTest.Tests
     {
         public TestApp App => SetupHooks.App;
         
-        [Then(@"I add New TextTitle and TextText")]
-        public void ThenIAddNewTextTitleAndTextText()
+        [Then(@"I add New ""(.*)"" and ""(.*)""")]
+        public void ThenIAddNewAnd(string textTitle, string text)
         {
-            App.Container.Resolve<NewTextPageViewModel>().TextItem.TextTitle = "Hello bellow title";
-            App.Container.Resolve<NewTextPageViewModel>().TextItem.Text = "Hello bellow asjd asdkl alsdkajs asd as as ";
+            App.Container.Resolve<NewTextPageViewModel>().TextItem.TextTitle = textTitle;
+            App.Container.Resolve<NewTextPageViewModel>().TextItem.Text = text;
             App.Container.Resolve<NewTextPageViewModel>().TextItem.TextDateTime = DateTime.Now;
         }
+
 
         [Then(@"I Delete first item from ListView")]
         public void ThenIDeleteFirstItemFromListView()
