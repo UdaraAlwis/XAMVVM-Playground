@@ -37,8 +37,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SetupHooks.cs" />
-    <Compile Include="Tests\AppTests.cs" />
+    <Compile Include="Tests\BaseTests.cs" />
     <Compile Include="AppInitializer.cs" />
+    <Compile Include="Tests\HomePageTests.cs" />
+    <Compile Include="Tests\NewTextPageTests.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

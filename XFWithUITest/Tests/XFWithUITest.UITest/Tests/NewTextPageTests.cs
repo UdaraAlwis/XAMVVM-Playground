@@ -1,8 +1,9 @@
 ﻿using System;
-using System.IO;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Bogus;
-using Bogus.DataSets;
 using NUnit.Framework;
 using Xamarin.UITest;
 using Xamarin.UITest.Queries;
@@ -11,38 +12,13 @@ namespace XFWithUITest.UITest.Tests
 {
     [TestFixture(Platform.Android)]
     //[TestFixture(Platform.iOS)]
-    public class AppTests
-    { 
-        public AppTests(Platform platform)
+    public class NewTextPageTests : BaseTests
+    {
+        public NewTextPageTests(Platform platform) : base(platform)
         {
-            SetupHooks.Platform = platform;
+
         }
 
-        [SetUp]
-        public void BeforeEachTest()
-        {
-            SetupHooks.App = AppInitializer.StartApp(SetupHooks.Platform, true);
-        }
-
-        [Test]
-        public void WelcomeTextIsDisplayedTest()
-        {
-            AppResult[] homePageExists = SetupHooks.App.WaitForElement(c => c.Marked("HomePage"));
-            Assert.IsTrue(homePageExists.Any());
-
-            AppResult[] welcomeLabelExists = SetupHooks.App.WaitForElement(c => c.Text("Hey there, Welcome!"));
-            SetupHooks.App.Screenshot("Welcome screen.");
-
-            Assert.IsTrue(welcomeLabelExists.Any());
-        }
-
-        [Test]
-        public void EmptyListDisplayedTest()
-        {
-            AppResult[] emptyListLabelExists = SetupHooks.App.WaitForElement(c => c.Text("Let's start by adding a new Text..."));
-            Assert.IsTrue(emptyListLabelExists.Any());
-        }
-        
         [Test]
         public void CreateNewTextTest()
         {
@@ -56,7 +32,7 @@ namespace XFWithUITest.UITest.Tests
                 AfterCreateNewTextSteps();
             }
         }
-        
+
         [Test]
         public void CreateAndViewTextItemTest()
         {
@@ -66,7 +42,7 @@ namespace XFWithUITest.UITest.Tests
 
             // check if new item was added
             Assert.Greater(SetupHooks.App.Query(c => c.Marked("TextListView").Child()).Length, 0);
-            
+
             // get the first item in ListView
             var firstCellInListView = GetFirstItemInListView();
 
@@ -101,7 +77,7 @@ namespace XFWithUITest.UITest.Tests
             // create a new Text item
             CreateNewTextSteps();
             AfterCreateNewTextSteps();
-            
+
             // check if data persists
             Assert.Greater(SetupHooks.App.Query(c => c.Marked("TextListView").Child()).Length, 0);
 
@@ -117,7 +93,7 @@ namespace XFWithUITest.UITest.Tests
             // delete item
             SetupHooks.App.Tap(c => c.Text("Delete"));
         }
-        
+
         public Func<AppQuery, AppQuery> GetFirstItemInListView(int timeoutInSeconds = 20)
         {
             Func<AppQuery, AppQuery> firstItemInListView = null;
