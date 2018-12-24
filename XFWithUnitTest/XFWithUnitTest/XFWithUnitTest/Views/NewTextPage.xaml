@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XFWithUnitTest.Views.NewTextPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:iOsSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    Title="New Text"
+    iOsSpecific:Page.UseSafeArea="True"
+    mvvm:ViewModelLocator.AutowireViewModel="True"
+    AutomationId="NewTextPage"
+    BackgroundColor="White">
+    <ContentPage.Content>
+        <Grid RowSpacing="5">
+
+            <Editor
+                x:Name="TextTitleEditor"
+                Grid.Row="0"
+                Margin="10,5,0,0"
+                AutoSize="TextChanges"
+                AutomationId="TextTitleEditor"
+                FontSize="Large"
+                Placeholder="title..."
+                Text="{Binding TextItem.TextTitle}"
+                TextColor="#494c50" />
+
+            <Editor
+                x:Name="TextTextEditor"
+                Grid.Row="1"
+                Margin="10,0,0,0"
+                AutomationId="TextTextEditor"
+                FontSize="Large"
+                Placeholder="whatever your Text..."
+                Text="{Binding TextItem.Text}"
+                TextColor="#797f86" />
+
+            <Label
+                x:Name="TimeLabel"
+                Grid.Row="2"
+                Margin="10,0,0,0"
+                AutomationId="TimeLabel"
+                FontSize="Medium"
+                Text="{Binding TextItem.TextDateTime, StringFormat='{0:dddd, dd MMMM yyyy HH:mm:ss}', Mode=TwoWay}"
+                TextColor="#c9cccf" />
+
+            <Button
+                x:Name="SaveTextButton"
+                Grid.Row="3"
+                AutomationId="SaveTextButton"
+                BackgroundColor="DodgerBlue"
+                Command="{Binding SaveTextCommand}"
+                CornerRadius="0"
+                FontSize="Large"
+                Text="Save"
+                TextColor="White" />
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

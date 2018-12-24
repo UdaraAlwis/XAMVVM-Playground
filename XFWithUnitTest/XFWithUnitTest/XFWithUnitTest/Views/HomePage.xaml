@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XFWithUnitTest.Views.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    Title="Textpad"
+    ios:Page.UseSafeArea="True"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    AutomationId="HomePage"
+    BackgroundColor="White">
+    <ContentPage.Content>
+        <Grid RowSpacing="5">
+
+            <Label
+                Grid.Row="0"
+                Margin="0,10,0,0"
+                FontSize="Large"
+                HorizontalTextAlignment="Center"
+                Text="Hey there, Welcome!" />
+
+            <ListView
+                x:Name="TextListView"
+                Grid.Row="1"
+                AutomationId="TextListView"
+                HasUnevenRows="True"
+                ItemsSource="{Binding TextList}"
+                SelectedItem="{Binding SelectedTextItem, Mode=TwoWay}"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                Margin="5,10,5,10"
+                                Padding="10,10,10,10"
+                                AutomationId="TextListViewItem"
+                                CornerRadius="8"
+                                HasShadow="True"
+                                IsClippedToBounds="True">
+                                <Frame.BorderColor>
+                                    <OnPlatform x:TypeArguments="Color">
+                                        <On Platform="Android">Default</On>
+                                        <On Platform="iOS">DimGray</On>
+                                    </OnPlatform>
+                                </Frame.BorderColor>
+                                <Grid>
+                                    <Label
+                                        Grid.Row="0"
+                                        FontSize="Large"
+                                        Text="{Binding TextTitle}"
+                                        TextColor="#494c50" />
+                                    <Label
+                                        Grid.Row="1"
+                                        FontSize="Small"
+                                        Text="{Binding Text}"
+                                        TextColor="#797f86" />
+                                    <Label
+                                        Grid.Row="2"
+                                        FontSize="Micro"
+                                        Text="{Binding TextDateTime, StringFormat='{0:dddd, dd MMMM yyyy HH:mm:ss}'}"
+                                        TextColor="#797f86" />
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                </Grid>
+                            </Frame>
+
+                            <ViewCell.ContextActions>
+                                <MenuItem
+                                    AutomationId="TextListViewItemContextMenu"
+                                    Command="{Binding Path=BindingContext.DeleteTextCommand, Source={x:Reference TextListView}}"
+                                    CommandParameter="{Binding .}"
+                                    IsDestructive="True"
+                                    Text="Delete" />
+                            </ViewCell.ContextActions>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Frame
+                Grid.Row="1"
+                Margin="5,10,5,10"
+                Padding="10,10,10,10"
+                CornerRadius="8"
+                HasShadow="True"
+                IsClippedToBounds="True"
+                IsVisible="{Binding IsEmptyTextList}">
+                <Frame.BorderColor>
+                    <OnPlatform x:TypeArguments="Color">
+                        <On Platform="Android">Default</On>
+                        <On Platform="iOS">DimGray</On>
+                    </OnPlatform>
+                </Frame.BorderColor>
+                <Grid>
+                    <Label
+                        Grid.Row="0"
+                        AutomationId="EmptyListIndicatorLabel"
+                        FontSize="Large"
+                        HorizontalTextAlignment="Center"
+                        Text="Let's start by adding a new Text..."
+                        TextColor="#797f86"
+                        VerticalOptions="CenterAndExpand" />
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                </Grid>
+            </Frame>
+
+            <Button
+                Grid.Row="2"
+                AutomationId="NewTextButton"
+                BackgroundColor="DodgerBlue"
+                Command="{Binding NewTextCommand}"
+                CornerRadius="0"
+                FontSize="Large"
+                Text="New Text"
+                TextColor="White" />
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
