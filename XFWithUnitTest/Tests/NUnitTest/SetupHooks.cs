@@ -1,14 +1,18 @@
+using System.Linq;
 using NUnit.Framework;
 using NUnitTest;
+using Prism.Ioc;
+using Xamarin.Forms;
+using XFWithUnitTest.ViewModels;
 
 namespace Tests
 {
-    public static class SetupHooks
+    public class SetupHooks
     {
         public static TestApp App { get; private set; }
 
         [SetUp]
-        public static void Setup()
+        public void Setup()
         {
             Xamarin.Forms.Mocks.MockForms.Init();
 
@@ -16,7 +20,7 @@ namespace Tests
         }
 
         [Test]
-        public static void IsAppRunning()
+        public void IsAppRunning()
         {
             Assert.NotNull(App);
         }
