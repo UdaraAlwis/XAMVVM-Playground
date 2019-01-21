@@ -7,7 +7,7 @@ using XFWithUnitTest.ViewModels;
 
 namespace NUnitTest.Tests
 {
-    public class HomePageTests : BastTest
+    public class HomePageTests : BaseTest
     {
         [Test]
         public void NavigatingToHomePage()

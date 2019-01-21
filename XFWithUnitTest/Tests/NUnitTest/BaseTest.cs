@@ -2,7 +2,7 @@
 
 namespace NUnitTest
 {
-    public class BastTest
+    public class BaseTest
     {
         public static TestApp App { get; private set; }
 
