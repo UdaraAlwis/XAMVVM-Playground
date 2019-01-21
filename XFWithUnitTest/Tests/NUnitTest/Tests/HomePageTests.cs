@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using Prism.Ioc;
 using System.Linq;
+using Shouldly;
 using Xamarin.Forms;
 using XFWithUnitTest.ViewModels;
 
@@ -11,15 +12,18 @@ namespace NUnitTest.Tests
         [Test]
         public void NavigatingToHomePage()
         {
-            // is the app running
-            Assert.NotNull(App);
+            // Is the app running
+            App.ShouldNotBeNull();
             
             var navigationStack = ((NavigationPage)App.MainPage).Navigation.NavigationStack;
             // Am I in the Home page
-            Assert.AreEqual(navigationStack.Last().BindingContext.GetType().Name, nameof(HomePageViewModel));
+            navigationStack.Last().BindingContext.GetType().Name.ShouldBe(nameof(HomePageViewModel));
 
             // ListView should be empty
-            Assert.AreEqual(App.Container.Resolve<HomePageViewModel>().TextList.Count, 0);
+            App.Container.Resolve<HomePageViewModel>().TextList.Count.ShouldBe(0);
+
+            //Empty ListView Label Displayed
+            App.Container.Resolve<HomePageViewModel>().IsEmptyTextList.ShouldBe(true);
         }
     }
 }
