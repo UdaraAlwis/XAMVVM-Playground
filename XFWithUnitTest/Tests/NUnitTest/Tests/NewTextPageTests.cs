@@ -19,7 +19,7 @@ namespace NUnitTest.Tests
             // Is the app running
             App.ShouldNotBeNull();
 
-            var navigationStack = ((NavigationPage)App.MainPage).Navigation.NavigationStack;
+            var navigationStack = ((NavigationPage) App.MainPage).Navigation.NavigationStack;
             // Am I in the Home page
             navigationStack.Last().BindingContext.GetType().Name.ShouldBe(nameof(HomePageViewModel));
 
@@ -36,7 +36,7 @@ namespace NUnitTest.Tests
             // Is the app running
             App.ShouldNotBeNull();
 
-            var navigationStack = ((NavigationPage)App.MainPage).Navigation.NavigationStack;
+            var navigationStack = ((NavigationPage) App.MainPage).Navigation.NavigationStack;
             // Am I in the Home page
             navigationStack.Last().BindingContext.GetType().Name.ShouldBe(nameof(HomePageViewModel));
 
@@ -58,6 +58,22 @@ namespace NUnitTest.Tests
 
             // ListView should not be empty
             App.Container.Resolve<HomePageViewModel>().TextList.Count.ShouldBeGreaterThan(0);
+        }
+
+        [Test]
+        public void DeletingTextItem()
+        {
+            ClearData();
+
+            // Is the app running
+            App.ShouldNotBeNull();
+
+            var navigationStack = ((NavigationPage)App.MainPage).Navigation.NavigationStack;
+            // Am I in the Home page
+            navigationStack.Last().BindingContext.GetType().Name.ShouldBe(nameof(HomePageViewModel));
+
+            // ListView should be empty
+            App.Container.Resolve<HomePageViewModel>().TextList.Count.ShouldBe(0);
         }
     }
 }
