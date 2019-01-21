@@ -1,8 +1,6 @@
 ﻿using NUnit.Framework;
 using Prism.Ioc;
 using System.Linq;
-using Tests;
-using Unity;
 using Xamarin.Forms;
 using XFWithUnitTest.ViewModels;
 

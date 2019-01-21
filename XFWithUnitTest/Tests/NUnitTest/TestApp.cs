@@ -2,9 +2,6 @@
 using Prism.Ioc;
 using Prism.Navigation;
 using Prism.Unity;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Unity;
 using Xamarin.Forms;
 using XFWithUnitTest.ViewModels;

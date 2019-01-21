@@ -1,11 +1,6 @@
-using System.Linq;
 using NUnit.Framework;
-using NUnitTest;
-using Prism.Ioc;
-using Xamarin.Forms;
-using XFWithUnitTest.ViewModels;
 
-namespace Tests
+namespace NUnitTest
 {
     public class SetupHooks
     {
