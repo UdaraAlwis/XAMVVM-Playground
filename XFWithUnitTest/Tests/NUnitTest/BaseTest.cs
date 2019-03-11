@@ -10,22 +10,9 @@ namespace NUnitTest
         /// </summary>
         public static TestApp App { get; private set; }
 
-        /// <summary>
-        /// Setting up the test
-        /// env before execution
-        /// </summary>
-        [SetUp]
-        public void Setup()
+        public BaseTest()
         {
-            Xamarin.Forms.Mocks.MockForms.Init();
-
-            App = new TestApp();
-        }
-
-        [Test]
-        public void IsAppRunning()
-        {
-            Assert.NotNull(App);
+            App = TestHooks.App;
         }
 
         /// <summary>
@@ -33,12 +20,11 @@ namespace NUnitTest
         /// </summary>
         public async void ClearData()
         {
-            Xamarin.Forms.Mocks.MockForms.Init();
-
             Application.Current.Properties.Clear();
             await Application.Current.SavePropertiesAsync();
 
-            App = new TestApp();
+            TestHooks.Setup();
+            App = TestHooks.App;
         }
     }
 }
