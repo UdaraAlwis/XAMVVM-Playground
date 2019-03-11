@@ -9,6 +9,11 @@ namespace NUnitTest.Tests
 {
     public class HomePageTests : BaseTest
     {
+        /// <summary>
+        /// Navigating first time in to Home page
+        /// Sees empty List view and
+        /// empty data indication label
+        /// </summary>
         [Test]
         public void NavigatingToHomePage()
         {

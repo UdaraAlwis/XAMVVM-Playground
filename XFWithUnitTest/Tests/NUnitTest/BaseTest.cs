@@ -3,14 +3,14 @@ using Xamarin.Forms;
 
 namespace NUnitTest
 {
-    /// <summary>
-    /// Base class for Test classes
-    /// </summary>
+    // <summary>
+    // Base class for Test classes
+    // </summary>
     public class BaseTest
     {
-        /// <summary>
-        /// Instance of the app
-        /// </summary>
+        // <summary>
+        // Instance of the app
+        // </summary>
         public static TestApp App { get; private set; }
 
         public BaseTest()
