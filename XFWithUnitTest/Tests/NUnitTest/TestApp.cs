@@ -17,8 +17,6 @@ namespace NUnitTest
 
         protected override async void OnInitialized()
         {
-            Xamarin.Forms.Mocks.MockForms.Init();
-
             Container.GetContainer().RegisterInstance<INavigationService>(NavigationService, new Unity.Lifetime.SingletonLifetimeManager());
 
             await NavigationService.NavigateAsync("NavigationPage/HomePage");

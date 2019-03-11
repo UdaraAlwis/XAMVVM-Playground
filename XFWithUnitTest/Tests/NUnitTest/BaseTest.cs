@@ -21,7 +21,13 @@ namespace NUnitTest
 
             App = new TestApp();
         }
-        
+
+        [Test]
+        public void IsAppRunning()
+        {
+            Assert.NotNull(App);
+        }
+
         /// <summary>
         /// Clear the app data
         /// </summary>
