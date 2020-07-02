@@ -42,6 +42,7 @@
                                     <OnPlatform x:TypeArguments="Color">
                                         <On Platform="Android">Default</On>
                                         <On Platform="iOS">DimGray</On>
+                                        <On Platform="UWP">DimGray</On>
                                     </OnPlatform>
                                 </Frame.BorderColor>
                                 <Grid>
@@ -94,6 +95,7 @@
                     <OnPlatform x:TypeArguments="Color">
                         <On Platform="Android">Default</On>
                         <On Platform="iOS">DimGray</On>
+                        <On Platform="UWP">DimGray</On>
                     </OnPlatform>
                 </Frame.BorderColor>
                 <Grid>
