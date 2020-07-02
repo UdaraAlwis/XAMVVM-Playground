@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFWithUnitTest.Android", "XFWithUnitTest\XFWithUnitTest.Android\XFWithUnitTest.Android.csproj", "{68797226-3197-46AE-877D-EF96D95415E7}"
 EndProject
@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XFWithUnitTest", "XFWithUni
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8B3BA676-0F91-49B2-87D2-C80B5C44A7DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTest", "Tests\NUnitTest\NUnitTest.csproj", "{3940EA73-4889-4BB5-893C-0D720663E91F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitTest", "Tests\NUnitTest\NUnitTest.csproj", "{3940EA73-4889-4BB5-893C-0D720663E91F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,8 +95,6 @@ Global
 		{68797226-3197-46AE-877D-EF96D95415E7}.Debug|x64.Build.0 = Debug|Any CPU
 		{68797226-3197-46AE-877D-EF96D95415E7}.Debug|x64.Deploy.0 = Debug|Any CPU
 		{68797226-3197-46AE-877D-EF96D95415E7}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{68797226-3197-46AE-877D-EF96D95415E7}.Debug|x86.Build.0 = Debug|Any CPU
-		{68797226-3197-46AE-877D-EF96D95415E7}.Debug|x86.Deploy.0 = Debug|Any CPU
 		{68797226-3197-46AE-877D-EF96D95415E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68797226-3197-46AE-877D-EF96D95415E7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{68797226-3197-46AE-877D-EF96D95415E7}.Release|Any CPU.Deploy.0 = Release|Any CPU
@@ -167,8 +165,6 @@ Global
 		{723AEAA4-1D03-4E73-ADB8-A3A322430CDC}.Debug|x64.Build.0 = Debug|iPhone
 		{723AEAA4-1D03-4E73-ADB8-A3A322430CDC}.Debug|x64.Deploy.0 = Debug|iPhone
 		{723AEAA4-1D03-4E73-ADB8-A3A322430CDC}.Debug|x86.ActiveCfg = Debug|iPhone
-		{723AEAA4-1D03-4E73-ADB8-A3A322430CDC}.Debug|x86.Build.0 = Debug|iPhone
-		{723AEAA4-1D03-4E73-ADB8-A3A322430CDC}.Debug|x86.Deploy.0 = Debug|iPhone
 		{723AEAA4-1D03-4E73-ADB8-A3A322430CDC}.Release|Any CPU.ActiveCfg = Release|iPhone
 		{723AEAA4-1D03-4E73-ADB8-A3A322430CDC}.Release|Any CPU.Build.0 = Release|iPhone
 		{723AEAA4-1D03-4E73-ADB8-A3A322430CDC}.Release|Any CPU.Deploy.0 = Release|iPhone

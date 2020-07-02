@@ -31,6 +31,15 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem
+                                    AutomationId="TextListViewItemContextMenu"
+                                    Command="{Binding Path=BindingContext.DeleteTextCommand, Source={x:Reference Name=TextListView}}"
+                                    CommandParameter="{Binding .}"
+                                    IsDestructive="True"
+                                    Text="Delete" />
+                            </ViewCell.ContextActions>
+
                             <Frame
                                 Margin="5,10,5,10"
                                 Padding="10,10,10,10"
@@ -69,15 +78,6 @@
                                     </Grid.RowDefinitions>
                                 </Grid>
                             </Frame>
-
-                            <ViewCell.ContextActions>
-                                <MenuItem
-                                    AutomationId="TextListViewItemContextMenu"
-                                    Command="{Binding Path=BindingContext.DeleteTextCommand, Source={x:Reference TextListView}}"
-                                    CommandParameter="{Binding .}"
-                                    IsDestructive="True"
-                                    Text="Delete" />
-                            </ViewCell.ContextActions>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
