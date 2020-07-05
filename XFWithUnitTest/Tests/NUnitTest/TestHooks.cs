@@ -1,4 +1,6 @@
+using System.Linq;
 using NUnit.Framework;
+using Xamarin.Forms;
 
 namespace NUnitTest
 {
@@ -6,12 +8,12 @@ namespace NUnitTest
     /// Contains Test Hooks that are
     /// helpful for the test environment
     /// </summary>
-    public class TestHooks
+    public static class TestHooks
     {
         public static TestApp App { get; private set; }
 
         [SetUp]
-        public void Setup()
+        public static void Setup()
         {
             Xamarin.Forms.Mocks.MockForms.Init();
 
@@ -19,7 +21,7 @@ namespace NUnitTest
         }
 
         [Test]
-        public void IsAppRunning()
+        public static void IsAppRunning()
         {
             Assert.NotNull(App);
         }

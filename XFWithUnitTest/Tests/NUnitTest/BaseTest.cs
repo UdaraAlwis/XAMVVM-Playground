@@ -25,12 +25,11 @@ namespace NUnitTest
         }
 
         /// <summary>
-        /// Returns the ViewModel of
-        /// the current active Page
-        /// in Navigation Stack
+        /// Returns the active Page
+        /// in the Navigation Stack
         /// </summary>
         /// <returns></returns>
-        public Page GetCurrentPage()
+        public static Page GetCurrentPage()
         {
             var navigationStack = ((NavigationPage)App.MainPage).Navigation.NavigationStack;
             return (Page)navigationStack.Last();
@@ -45,7 +44,7 @@ namespace NUnitTest
             Application.Current.Properties.Clear();
             await Application.Current.SavePropertiesAsync();
 
-
+            // ...
         }
     }
 }

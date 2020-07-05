@@ -92,7 +92,7 @@ namespace NUnitTest.Tests
 
         /// <summary>
         /// Adding an Item from the Text List and
-        /// Deleting an Item from the Text List
+        /// Saving it in the App data cache
         /// </summary>
         [Test]
         public void DataPersistenceTest()
@@ -122,12 +122,12 @@ namespace NUnitTest.Tests
             // Check if we see new Text Item in the List
             App.Container.Resolve<HomePageViewModel>().TextList.Count.ShouldBe(1);
 
-            // Mocking relaunching of the app
+            // Mocking Relaunching of the app
             base.Setup();
 
-            // App relaunched
+            // App Relaunched
 
-            // ListView should be empty
+            // Check if we still see new Text Item in the List
             App.Container.Resolve<HomePageViewModel>().TextList.Count.ShouldBe(1);
         }
     }
