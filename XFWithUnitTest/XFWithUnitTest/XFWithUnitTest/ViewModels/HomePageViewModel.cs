@@ -37,10 +37,12 @@ namespace XFWithUnitTest.ViewModels
                 {
                     _navigationService.NavigateAsync(nameof(ViewTextPage), new NavigationParameters()
                     {
-                        { nameof(TextItem), _selectedTextItem }
-                    });
+                        { nameof(TextItem), value }
 
-                    SetProperty(ref _selectedTextItem, null);
+                    }).ContinueWith((result) => 
+                    {
+                        SetProperty(ref _selectedTextItem, null);
+                    });
                 }
             }
         }

@@ -19,9 +19,9 @@ namespace NUnitTest
         [SetUp]
         public void Setup()
         {
-            Xamarin.Forms.Mocks.MockForms.Init();
+            TestHooks.Setup();
 
-            App = new TestApp();
+            App = TestHooks.App;
         }
 
         /// <summary>

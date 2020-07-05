@@ -2,7 +2,6 @@
 using Prism.Ioc;
 using System.Linq;
 using Shouldly;
-using Xamarin.Forms;
 using XFWithUnitTest.Models;
 using XFWithUnitTest.ViewModels;
 
