@@ -1,5 +1,8 @@
-﻿using NUnit.Framework;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using NUnit.Framework;
 using Xamarin.Forms;
+using XFWithUnitTest.ViewModels;
 
 namespace NUnitTest
 {
@@ -22,15 +25,27 @@ namespace NUnitTest
         }
 
         /// <summary>
-        /// Clear the app data
+        /// Returns the ViewModel of
+        /// the current active Page
+        /// in Navigation Stack
         /// </summary>
-        public async void ClearData()
+        /// <returns></returns>
+        public Page GetCurrentPage()
         {
-            //Application.Current.Properties.Clear();
-            //await Application.Current.SavePropertiesAsync();
+            var navigationStack = ((NavigationPage)App.MainPage).Navigation.NavigationStack;
+            return (Page)navigationStack.Last();
+        }
 
-            //TestHooks.Setup();
-            //App = TestHooks.App;
+        [TearDown]
+        public async Task TearDown()
+        {
+            // Teardown steps
+
+            // 1. Clear App data in memory
+            Application.Current.Properties.Clear();
+            await Application.Current.SavePropertiesAsync();
+
+            // ..
         }
     }
 }

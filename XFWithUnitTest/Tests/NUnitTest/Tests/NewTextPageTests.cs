@@ -46,9 +46,8 @@ namespace NUnitTest.Tests
             // Is the app running
             App.ShouldNotBeNull();
 
-            var navigationStack = ((NavigationPage) App.MainPage).Navigation.NavigationStack;
             // Am I in the Home page
-            navigationStack.Last().BindingContext.GetType().Name.ShouldBe(nameof(HomePageViewModel));
+            GetCurrentPage().BindingContext.GetType().Name.ShouldBe(nameof(HomePageViewModel));
 
             // Navigating to New Text page
             App.Container.Resolve<HomePageViewModel>().NewTextCommand.Execute();
@@ -63,7 +62,7 @@ namespace NUnitTest.Tests
             App.Container.Resolve<NewTextPageViewModel>().SaveTextCommand.Execute();
 
             // Am I in the Home page
-            navigationStack.Last().BindingContext.GetType().Name.ShouldBe(nameof(HomePageViewModel));
+            GetCurrentPage().BindingContext.GetType().Name.ShouldBe(nameof(HomePageViewModel));
 
             // ListView should not be empty
             App.Container.Resolve<HomePageViewModel>().TextList.Count.ShouldBeGreaterThan(0);
