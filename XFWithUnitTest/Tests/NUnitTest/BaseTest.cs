@@ -45,7 +45,7 @@ namespace NUnitTest
             Application.Current.Properties.Clear();
             await Application.Current.SavePropertiesAsync();
 
-            // ..
+
         }
     }
 }

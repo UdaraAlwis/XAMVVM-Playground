@@ -16,7 +16,7 @@ namespace NUnitTest.Tests
         /// time and navigating in to Home page
         /// </summary>
         [Test]
-        public void NavigatingToHomePage()
+        public void AppLaunchingFirstTimeTest()
         {
             // Is the app running
             App.ShouldNotBeNull();
@@ -32,11 +32,31 @@ namespace NUnitTest.Tests
         }
 
         /// <summary>
+        /// Navigating to the New Text Page from the 
+        /// Home Page by clicking "New Text" button
+        /// </summary>
+        [Test]
+        public void NavigatingToNewTextPageTest()
+        {
+            // Is the app running
+            App.ShouldNotBeNull();
+
+            // Am I in the Home page
+            GetCurrentPage().BindingContext.GetType().Name.ShouldBe(nameof(HomePageViewModel));
+
+            // Navigating to New Text page
+            App.Container.Resolve<HomePageViewModel>().NewTextCommand.Execute();
+
+            // Am I in the New Text page
+            GetCurrentPage().BindingContext.GetType().Name.ShouldBe(nameof(NewTextPageViewModel));
+        }
+
+        /// <summary>
         /// Adding an Item from the Text List and
         /// Deleting an Item from the Text List
         /// </summary>
         [Test]
-        public void DeletingTextItem()
+        public void DeletingTextItemTest()
         {
             // Is the app running
             App.ShouldNotBeNull();

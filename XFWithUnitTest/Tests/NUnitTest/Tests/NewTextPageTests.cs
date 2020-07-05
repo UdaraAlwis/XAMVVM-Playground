@@ -16,32 +16,31 @@ namespace NUnitTest.Tests
     public class NewTextPageTests : BaseTest
     {
         /// <summary>
-        /// Navigating first time in to Home page
-        /// Sees empty List view and
-        /// empty data indication label
+        /// Navigating to the New Text Page from the 
+        /// Home Page by clicking "New Text" button
         /// </summary>
         [Test]
-        public void NavigatingToNewTextPage()
+        public void NavigatingToNewTextPageTest()
         {
             // Is the app running
             App.ShouldNotBeNull();
 
-            var navigationStack = ((NavigationPage) App.MainPage).Navigation.NavigationStack;
-
             // Am I in the Home page
-            navigationStack.Last().BindingContext.GetType().Name.ShouldBe(nameof(HomePageViewModel));
+            GetCurrentPage().BindingContext.GetType().Name.ShouldBe(nameof(HomePageViewModel));
 
             // Navigating to New Text page
             App.Container.Resolve<HomePageViewModel>().NewTextCommand.Execute();
 
-            // await Task.Delay(500);
-
             // Am I in the New Text page
-            navigationStack.Last().BindingContext.GetType().Name.ShouldBe(nameof(NewTextPageViewModel));
+            GetCurrentPage().BindingContext.GetType().Name.ShouldBe(nameof(NewTextPageViewModel));
         }
 
+        /// <summary>
+        /// Creating a New Text Item
+        /// and Saving it in the App
+        /// </summary>
         [Test]
-        public void CreatingNewTextItem()
+        public void CreatingNewTextItemTest()
         {
             // Is the app running
             App.ShouldNotBeNull();
@@ -68,9 +67,12 @@ namespace NUnitTest.Tests
             App.Container.Resolve<HomePageViewModel>().TextList.Count.ShouldBeGreaterThan(0);
         }
 
-
+        /// <summary>
+        /// Validating the Input data fields
+        /// during creating a new Text Item
+        /// </summary>
         [Test]
-        public void InputDataValidation()
+        public void ValidatingInputDataTest()
         {
             // Is the app running
             App.ShouldNotBeNull();
