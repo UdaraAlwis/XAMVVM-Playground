@@ -7,6 +7,7 @@ using XFWithUnitTest.ViewModels;
 
 namespace NUnitTest.Tests
 {
+    [TestFixture]
     public class HomePageTests : BaseTest
     {
         /// <summary>
@@ -21,6 +22,7 @@ namespace NUnitTest.Tests
             App.ShouldNotBeNull();
             
             var navigationStack = ((NavigationPage)App.MainPage).Navigation.NavigationStack;
+
             // Am I in the Home page
             navigationStack.Last().BindingContext.GetType().Name.ShouldBe(nameof(HomePageViewModel));
 
@@ -29,6 +31,22 @@ namespace NUnitTest.Tests
 
             //Empty ListView Label Displayed
             App.Container.Resolve<HomePageViewModel>().IsEmptyTextList.ShouldBe(true);
+        }
+
+        [Test]
+        public void DeletingTextItem()
+        {
+            ClearData();
+
+            // Is the app running
+            App.ShouldNotBeNull();
+
+            var navigationStack = ((NavigationPage)App.MainPage).Navigation.NavigationStack;
+            // Am I in the Home page
+            navigationStack.Last().BindingContext.GetType().Name.ShouldBe(nameof(HomePageViewModel));
+
+            // ListView should be empty
+            App.Container.Resolve<HomePageViewModel>().TextList.Count.ShouldBe(0);
         }
     }
 }

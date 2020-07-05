@@ -52,7 +52,7 @@ namespace XFWithUnitTest.ViewModels
 
             TextList = new ObservableCollection<TextItem>();
 
-            NewTextCommand = new DelegateCommand(NewText);
+            NewTextCommand = new DelegateCommand(async () => await NewText());
 
             DeleteTextCommand = new DelegateCommand<TextItem>(DeleteText);
         }
@@ -68,9 +68,9 @@ namespace XFWithUnitTest.ViewModels
             RaisePropertyChanged(nameof(IsEmptyTextList));
         }
 
-        private void NewText()
+        private async Task NewText()
         {
-            _navigationService.NavigateAsync(nameof(NewTextPage));
+            await _navigationService.NavigateAsync(nameof(NewTextPage));
         }
 
         public override async void OnNavigatedTo(INavigationParameters parameters)

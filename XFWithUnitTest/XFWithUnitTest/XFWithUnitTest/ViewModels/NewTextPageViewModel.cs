@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Prism.Commands;
 using Prism.Navigation;
 using Unity;
@@ -12,7 +13,7 @@ namespace XFWithUnitTest.ViewModels
     public class NewTextPageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
-        
+
         private bool _isTimerEnabled;
 
         public TextItem TextItem { get; set; }
@@ -25,21 +26,18 @@ namespace XFWithUnitTest.ViewModels
 
             TextItem = new TextItem();
 
-            SaveTextCommand = new DelegateCommand(SaveText);
+            SaveTextCommand = new DelegateCommand(async () => await SaveText());
         }
 
-        private void SaveText()
+        private async Task SaveText()
         {
             if (string.IsNullOrEmpty(TextItem.TextTitle) || string.IsNullOrEmpty(TextItem.Text) ||
                 string.IsNullOrWhiteSpace(TextItem.TextTitle) || string.IsNullOrWhiteSpace(TextItem.Text))
                 return;
 
-            // Timer ended
-            _isTimerEnabled = false;
-            
             TextItem.TextDateTime = DateTime.Now;
             
-            _navigationService.GoBackAsync(new NavigationParameters()
+            await _navigationService.GoBackAsync(new NavigationParameters()
             {
                 { nameof(TextItem), TextItem }
             });
@@ -50,12 +48,12 @@ namespace XFWithUnitTest.ViewModels
             base.OnNavigatedTo(parameters);
 
             _isTimerEnabled = true;
-            
+
             // Timer started
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
                 TextItem.TextDateTime = DateTime.Now;
-                
+
                 if (_isTimerEnabled)
                     return true;
                 else

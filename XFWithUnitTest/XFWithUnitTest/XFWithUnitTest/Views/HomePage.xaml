@@ -31,14 +31,14 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <ViewCell.ContextActions>
+                            <!--<ViewCell.ContextActions>
                                 <MenuItem
                                     AutomationId="TextListViewItemContextMenu"
                                     Command="{Binding Path=BindingContext.DeleteTextCommand, Source={x:Reference Name=TextListView}}"
                                     CommandParameter="{Binding .}"
                                     IsDestructive="True"
                                     Text="Delete" />
-                            </ViewCell.ContextActions>
+                            </ViewCell.ContextActions>-->
 
                             <Frame
                                 Margin="5,10,5,10"

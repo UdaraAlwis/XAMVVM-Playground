@@ -11,7 +11,7 @@ namespace NUnitTest
         public static TestApp App { get; private set; }
 
         [SetUp]
-        public static void Setup()
+        public void Setup()
         {
             Xamarin.Forms.Mocks.MockForms.Init();
 
@@ -19,7 +19,7 @@ namespace NUnitTest
         }
 
         [Test]
-        public static void IsAppRunning()
+        public void IsAppRunning()
         {
             Assert.NotNull(App);
         }
