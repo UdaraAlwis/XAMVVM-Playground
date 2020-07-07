@@ -4,21 +4,37 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace XFWithUnitTest.Services
 {
     public class LocationService : ILocationService
     {
+        private Location _cachedLocation = null;
+
         public async Task<Location> GetLocation()
+        {
+            if (_cachedLocation != null)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    _cachedLocation = await SilentGetLocation();
+                });
+            }
+            else
+            {
+                _cachedLocation = await SilentGetLocation();
+            }
+
+            return _cachedLocation;
+        }
+
+        private async Task<Location> SilentGetLocation()
         {
             try
             {
-                var location = await Geolocation.GetLastKnownLocationAsync();
-                if (location == null)
-                {
-                    var request = new GeolocationRequest(GeolocationAccuracy.Medium);
-                    location = await Geolocation.GetLocationAsync(request);
-                }
+                var request = new GeolocationRequest(GeolocationAccuracy.Lowest);
+                var location = await Geolocation.GetLocationAsync(request);
 
                 return location;
             }
