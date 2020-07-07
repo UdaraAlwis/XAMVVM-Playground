@@ -40,10 +40,14 @@ namespace NUnitTest
         }
     }
 
+    /// <summary>
+    /// Mocked Location Service
+    /// </summary>
     public class MockLocationService : ILocationService
     {
         public Task<Location> GetLocation()
         {
+            // Mock location data
             return Task.FromResult(new Location(0.11111, 0.22222));
         }
     }

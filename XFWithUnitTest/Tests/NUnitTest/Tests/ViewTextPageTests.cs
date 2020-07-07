@@ -55,6 +55,7 @@ namespace NUnitTest.Tests
             viewingTextItem.TextTitle.ShouldBe(newTextItem.TextTitle);
             viewingTextItem.Text.ShouldBe(newTextItem.Text);
             viewingTextItem.TextDateTime.ShouldBe(newTextItem.TextDateTime);
+            viewingTextItem.LocationLatLong.ShouldBe(newTextItem.LocationLatLong);
         }
     }
 }
