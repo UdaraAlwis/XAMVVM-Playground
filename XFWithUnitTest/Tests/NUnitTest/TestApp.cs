@@ -35,6 +35,8 @@ namespace NUnitTest
             containerRegistry.GetContainer().RegisterType<HomePageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
             containerRegistry.GetContainer().RegisterType<NewTextPageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
             containerRegistry.GetContainer().RegisterType<ViewTextPageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
+
+            containerRegistry.RegisterSingleton<ILocationService, MockLocationService>();
         }
     }
 
@@ -42,7 +44,7 @@ namespace NUnitTest
     {
         public Task<Location> GetLocation()
         {
-            return new Task<Location>(() => new Location(0.11111, 0.22222));
+            return Task.FromResult(new Location(0.11111, 0.22222));
         }
     }
 }
