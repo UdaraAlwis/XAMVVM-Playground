@@ -3,6 +3,7 @@ using Prism;
 using Prism.Ioc;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XFWithUnitTest.Services;
 using XFWithUnitTest.ViewModels;
 using XFWithUnitTest.Views;
 
@@ -33,6 +34,8 @@ namespace XFWithUnitTest
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
             containerRegistry.RegisterForNavigation<NewTextPage, NewTextPageViewModel>();
             containerRegistry.RegisterForNavigation<ViewTextPage, ViewTextPageViewModel>();
+
+            containerRegistry.RegisterSingleton<ILocationService, LocationService>();
         }
     }
 }

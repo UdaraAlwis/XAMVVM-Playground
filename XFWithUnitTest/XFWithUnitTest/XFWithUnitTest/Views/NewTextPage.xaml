@@ -35,17 +35,26 @@
                 TextColor="#797f86" />
 
             <Label
-                x:Name="TimeLabel"
+                x:Name="LocationLatLongLabel"
                 Grid.Row="2"
                 Margin="10,0,0,0"
                 AutomationId="TimeLabel"
                 FontSize="Medium"
-                Text="{Binding TextItem.TextDateTime, StringFormat='{0:dddd, dd MMMM yyyy HH:mm:ss}', Mode=TwoWay}"
+                Text="{Binding TextItem.LocationLatLong}"
+                TextColor="#c9cccf" />
+
+            <Label
+                x:Name="TimeLabel"
+                Grid.Row="3"
+                Margin="10,0,0,0"
+                AutomationId="TimeLabel"
+                FontSize="Medium"
+                Text="{Binding TextItem.TextDateTime, StringFormat='{0:dddd, dd MMMM yyyy HH:mm:ss}'}"
                 TextColor="#c9cccf" />
 
             <Button
                 x:Name="SaveTextButton"
-                Grid.Row="3"
+                Grid.Row="4"
                 AutomationId="SaveTextButton"
                 BackgroundColor="DodgerBlue"
                 Command="{Binding SaveTextCommand}"
@@ -57,6 +66,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="60" />
             </Grid.RowDefinitions>

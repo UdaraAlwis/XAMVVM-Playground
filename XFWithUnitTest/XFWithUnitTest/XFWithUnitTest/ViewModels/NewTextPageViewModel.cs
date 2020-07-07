@@ -7,12 +7,14 @@ using Prism.Navigation;
 using Unity;
 using Xamarin.Forms;
 using XFWithUnitTest.Models;
+using XFWithUnitTest.Services;
 
 namespace XFWithUnitTest.ViewModels
 {
     public class NewTextPageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
+        private readonly ILocationService _locationService;
 
         private bool _isTimerEnabled;
 
@@ -20,9 +22,10 @@ namespace XFWithUnitTest.ViewModels
 
         public DelegateCommand SaveTextCommand { get; set; }
         
-        public NewTextPageViewModel(INavigationService navigationService) : base(navigationService)
+        public NewTextPageViewModel(INavigationService navigationService, ILocationService locationService) : base(navigationService)
         {
             this._navigationService = navigationService;
+            this._locationService = locationService;
 
             TextItem = new TextItem();
 
@@ -36,19 +39,27 @@ namespace XFWithUnitTest.ViewModels
                 return;
 
             TextItem.TextDateTime = DateTime.Now;
-            
+            var location = await _locationService.GetLocation();
+            if (location != null)
+                TextItem.LocationLatLong = $"Lat: {location.Latitude.ToString("###.0000")}, Long: {location.Longitude.ToString("###.0000")}";
+
             await _navigationService.GoBackAsync(new NavigationParameters()
             {
                 { nameof(TextItem), TextItem }
             });
         }
 
-        public override void OnNavigatedTo(INavigationParameters parameters)
+        public override async void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
 
+            // Get Location
+            var location = await _locationService.GetLocation();
+            if (location != null)
+                TextItem.LocationLatLong = $"Lat: {location.Latitude.ToString("###.0000")}, Long: {location.Longitude.ToString("###.0000")}";
+        
+            // Get Timer display
             _isTimerEnabled = true;
-
             // Timer started
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {

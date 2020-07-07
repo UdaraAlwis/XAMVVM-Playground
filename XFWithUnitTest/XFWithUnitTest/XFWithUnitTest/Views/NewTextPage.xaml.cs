@@ -8,14 +8,14 @@ namespace XFWithUnitTest.Views
 	{
 		public NewTextPage()
 		{
-			InitializeComponent ();
+			InitializeComponent();
 		}
 
 	    protected override void OnAppearing()
 	    {
 	        base.OnAppearing();
 
-	        TextTitleEditor.Focus();
+            TextTitleEditor.Focus();
 	    }
 	}
 }

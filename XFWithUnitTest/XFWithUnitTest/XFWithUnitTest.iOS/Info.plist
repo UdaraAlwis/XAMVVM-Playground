@@ -35,6 +35,6 @@
     <key>XSAppIconAssets</key>
     <string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Fill in a reason why your app needs access to location.</string>
+	<string>We need access to device location data.</string>
 </dict>
 </plist>

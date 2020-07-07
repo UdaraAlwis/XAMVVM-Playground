@@ -10,6 +10,7 @@ namespace XFWithUnitTest.Models
         private string _textTitle;
         private string _textText;
         private DateTime _textDateTime;
+        private string _locationLatLong;
 
         public string TextTitle
         {
@@ -27,6 +28,12 @@ namespace XFWithUnitTest.Models
         {
             get => _textDateTime;
             set => SetProperty(ref _textDateTime, value);
+        }
+
+        public string LocationLatLong
+        {
+            get => _locationLatLong;
+            set => SetProperty(ref _locationLatLong, value);
         }
     }
 }

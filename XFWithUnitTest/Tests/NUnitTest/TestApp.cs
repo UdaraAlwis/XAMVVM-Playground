@@ -1,9 +1,12 @@
-﻿using Prism;
+﻿using System.Threading.Tasks;
+using Prism;
 using Prism.Ioc;
 using Prism.Navigation;
 using Prism.Unity;
 using Unity;
+using Xamarin.Essentials;
 using Xamarin.Forms;
+using XFWithUnitTest.Services;
 using XFWithUnitTest.ViewModels;
 using XFWithUnitTest.Views;
 
@@ -32,6 +35,14 @@ namespace NUnitTest
             containerRegistry.GetContainer().RegisterType<HomePageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
             containerRegistry.GetContainer().RegisterType<NewTextPageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
             containerRegistry.GetContainer().RegisterType<ViewTextPageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
+        }
+    }
+
+    public class MockLocationService : ILocationService
+    {
+        public Task<Location> GetLocation()
+        {
+            return new Task<Location>(() => new Location(0.11111, 0.22222));
         }
     }
 }

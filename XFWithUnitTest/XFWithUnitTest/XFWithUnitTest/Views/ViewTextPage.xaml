@@ -31,12 +31,19 @@
                 Grid.Row="2"
                 Margin="10,0,0,0"
                 FontSize="Small"
-                Text="{Binding TextItem.TextDateTime, StringFormat='{0:dddd, dd MMMM yyyy HH:mm:ss}', Mode=TwoWay}"
+                Text="{Binding TextItem.LocationLatLong}"
+                TextColor="#797f86" />
+
+            <Label
+                Grid.Row="3"
+                Margin="10,0,0,0"
+                FontSize="Small"
+                Text="{Binding TextItem.TextDateTime, StringFormat='{0:dddd, dd MMMM yyyy HH:mm:ss}'}"
                 TextColor="#797f86" />
 
             <Button
                 x:Name="DoneTextButton"
-                Grid.Row="3"
+                Grid.Row="4"
                 AutomationId="DoneTextButton"
                 BackgroundColor="DodgerBlue"
                 Command="{Binding DoneCommand}"
@@ -48,6 +55,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="60" />
             </Grid.RowDefinitions>
