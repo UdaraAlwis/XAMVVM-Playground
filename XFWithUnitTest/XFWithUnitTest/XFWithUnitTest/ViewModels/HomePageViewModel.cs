@@ -22,7 +22,7 @@ namespace XFWithUnitTest.ViewModels
 
         public bool IsEmptyTextList => TextList == null || TextList.Count == 0;
 
-        public DelegateCommand NewTextCommand { get; set; }
+        public DelegateCommand GoToNewTextPageCommand { get; set; }
 
         public DelegateCommand<TextItem> DeleteTextCommand { get; set; }
 
@@ -54,7 +54,7 @@ namespace XFWithUnitTest.ViewModels
 
             TextList = new ObservableCollection<TextItem>();
 
-            NewTextCommand = new DelegateCommand(async () => await NewText());
+            GoToNewTextPageCommand = new DelegateCommand(async () => await NewText());
 
             DeleteTextCommand = new DelegateCommand<TextItem>(DeleteText);
         }

@@ -26,7 +26,7 @@ namespace NUnitTest.Tests
             GetCurrentPage().BindingContext.GetType().Name.ShouldBe(nameof(HomePageViewModel));
 
             // Navigating to New Text page
-            App.Container.Resolve<HomePageViewModel>().NewTextCommand.Execute();
+            App.Container.Resolve<HomePageViewModel>().GoToNewTextPageCommand.Execute();
 
             // Create a new Text item
             var newTextItem = App.Container.Resolve<NewTextPageViewModel>().TextItem = CreateSampleTextItem();
@@ -70,7 +70,7 @@ namespace NUnitTest.Tests
             GetCurrentPage().BindingContext.GetType().Name.ShouldBe(nameof(HomePageViewModel));
 
             // Navigating to New Text page
-            App.Container.Resolve<HomePageViewModel>().NewTextCommand.Execute();
+            App.Container.Resolve<HomePageViewModel>().GoToNewTextPageCommand.Execute();
 
             // Create a new Text item
             var newTextItem = App.Container.Resolve<NewTextPageViewModel>().TextItem = CreateSampleTextItem();

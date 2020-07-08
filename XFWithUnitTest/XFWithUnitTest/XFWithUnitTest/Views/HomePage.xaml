@@ -117,9 +117,9 @@
 
             <Button
                 Grid.Row="2"
-                AutomationId="NewTextButton"
+                AutomationId="GoToNewTextPageButton"
                 BackgroundColor="DodgerBlue"
-                Command="{Binding NewTextCommand}"
+                Command="{Binding GoToNewTextPageCommand}"
                 CornerRadius="0"
                 FontSize="Large"
                 Text="New Text"
