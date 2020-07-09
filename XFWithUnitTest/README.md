@@ -1,4 +1,4 @@
-#XAMVVM-02 UnitTest with Xamarin.Forms!
+# XAMVVM-02 UnitTest with Xamarin.Forms!
 
 Thinking of how to adopt Testing practices into your Xamarin.Forms project, in this world of test driven software development? 😉 You’re about to find out!
 Yes, you can easily incorporate UnitTest cases into your Xamarin.Forms project just like any other .NET solution, and there’s plenty of ways to do with several test frameworks.
@@ -10,8 +10,4 @@ https://theconfuzedsourcecode.wordpress.com/
 
 <br />
 
-<img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithUnitTest/Screenshots/Features/XFWithUnitTest 1 iOS.png"  height="270" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithUnitTest/Screenshots/Features/XFWithUnitTest 2 iOS.png"  height="270" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithUnitTest/Screenshots/Features/XFWithUnitTest 3 iOS.png"  height="270" /> 
-
-<br />
-
-<img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithUnitTest/Screenshots/Features/XFWithUnitTest 4 iOS.png"  height="270" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithUnitTest/Screenshots/Features/XFWithUnitTest 5 iOS.png"  height="270" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithUnitTest/Screenshots/Features/XFWithUnitTest 6 iOS.png"  height="270" />
+<img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithUnitTest/Screenshots/Features/XFWithUnitTest 1 iOS.png"  height="270" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithUnitTest/Screenshots/Features/XFWithUnitTest 2 iOS.png"  height="270" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithUnitTest/Screenshots/Features/XFWithUnitTest 3 iOS.png"  height="270" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithUnitTest/Screenshots/Features/XFWithUnitTest 4 iOS.png"  height="270" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithUnitTest/Screenshots/Features/XFWithUnitTest 5 iOS.png"  height="270" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithUnitTest/Screenshots/Features/XFWithUnitTest 6 iOS.png"  height="270" />
