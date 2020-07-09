@@ -28,7 +28,7 @@ namespace XFWithSpecflow.ViewModels
             _navigationService.GoBackAsync();
         }
 
-        public override void OnNavigatedTo(NavigationParameters parameters)
+        public override void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
 

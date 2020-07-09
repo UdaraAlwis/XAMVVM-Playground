@@ -74,7 +74,7 @@ namespace XFWithSpecflow.ViewModels
             _navigationService.NavigateAsync(nameof(NewTextPage));
         }
 
-        public override async void OnNavigatedTo(NavigationParameters parameters)
+        public override async void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
 

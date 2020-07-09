@@ -45,25 +45,10 @@
   <ItemGroup>
     <Compile Include="SetupHooks.cs" />
     <Compile Include="SharedSteps.cs" />
-    <Compile Include="Tests\HomePage.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HomePage.feature</DependentUpon>
-    </Compile>
     <Compile Include="Tests\HomePageSteps.cs" />
     <Compile Include="TestApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\NewTextPage.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NewTextPage.feature</DependentUpon>
-    </Compile>
     <Compile Include="Tests\NewTextPageSteps.cs" />
-    <Compile Include="Tests\ViewTextPage.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ViewTextPage.feature</DependentUpon>
-    </Compile>
     <Compile Include="Tests\ViewTextPageSteps.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +72,9 @@
     <PackageReference Include="SpecFlow.NUnit">
       <Version>3.3.30</Version>
     </PackageReference>
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation">
+      <Version>3.3.30</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms">
       <Version>4.6.0.847</Version>
     </PackageReference>
@@ -95,16 +83,11 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Tests\HomePage.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>HomePage.feature.cs</LastGenOutput>
-    </None>
+    <None Include="Tests\HomePage.feature" />
     <None Include="Tests\NewTextPage.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>NewTextPage.feature.cs</LastGenOutput>
     </None>
     <None Include="Tests\ViewTextPage.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ViewTextPage.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
