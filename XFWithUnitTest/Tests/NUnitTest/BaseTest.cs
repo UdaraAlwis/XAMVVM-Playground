@@ -2,9 +2,8 @@
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Xamarin.Forms;
-using XFWithUnitTest.ViewModels;
 
-namespace NUnitTest
+namespace XFTextpadApp.NUnitTests
 {
     /// <summary>
     /// Base class for Test classes

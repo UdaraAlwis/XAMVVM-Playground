@@ -2,10 +2,10 @@
 using Prism.Ioc;
 using System.Linq;
 using Shouldly;
-using XFWithUnitTest.Models;
-using XFWithUnitTest.ViewModels;
+using XFTextpadApp.Models;
+using XFTextpadApp.ViewModels;
 
-namespace NUnitTest.Tests
+namespace XFTextpadApp.NUnitTests.Tests
 {
     [TestFixture]
     public class HomePageTests : BaseTest

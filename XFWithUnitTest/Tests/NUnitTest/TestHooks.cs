@@ -1,8 +1,6 @@
-using System.Linq;
 using NUnit.Framework;
-using Xamarin.Forms;
 
-namespace NUnitTest
+namespace XFTextpadApp.NUnitTests
 {
     /// <summary>
     /// Contains Test Hooks that are

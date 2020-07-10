@@ -3,10 +3,10 @@ using NUnit.Framework;
 using Prism.Ioc;
 using Shouldly;
 using Xamarin.Forms;
-using XFWithUnitTest.Models;
-using XFWithUnitTest.ViewModels;
+using XFTextpadApp.Models;
+using XFTextpadApp.ViewModels;
 
-namespace NUnitTest.Tests
+namespace XFTextpadApp.NUnitTests.Tests
 {
     [TestFixture]
     public class NewTextPageTests : BaseTest

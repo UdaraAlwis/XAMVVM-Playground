@@ -6,11 +6,11 @@ using Prism.Unity;
 using Unity;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-using XFWithUnitTest.Services;
-using XFWithUnitTest.ViewModels;
-using XFWithUnitTest.Views;
+using XFTextpadApp.Services;
+using XFTextpadApp.ViewModels;
+using XFTextpadApp.Views;
 
-namespace NUnitTest
+namespace XFTextpadApp.NUnitTests
 {
     public class TestApp : PrismApplication
     {
