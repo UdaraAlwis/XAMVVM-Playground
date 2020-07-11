@@ -20,7 +20,6 @@ Examples:
 	| TextTitle                               | TextText															 |
 	| Juis yuwe sjkl Tywe oiq aklsjd asqw al. | Binf yuw tyasas pwerq asyu tui nuiwe aske yrwn kashdihas asju ywte.  |
 	
-@cleardata
 Scenario: Deleting Text Item
 	Given I have launched the app
 	Then I am on the "Home" Page

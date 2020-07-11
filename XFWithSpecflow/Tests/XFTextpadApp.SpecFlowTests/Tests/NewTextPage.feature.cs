@@ -205,18 +205,12 @@ this.CreatingToNewTextItem("Juis yuwe sjkl Tywe oiq aklsjd asqw al.", "Binf yuw 
         
         public virtual void DeletingTextItem(string textTitle, string textText, string[] exampleTags)
         {
-            string[] @__tags = new string[] {
-                    "cleardata"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("TextTitle", textTitle);
             argumentsOfScenario.Add("TextText", textText);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deleting Text Item", null, tagsOfScenario, argumentsOfScenario);
-#line 24
+#line 23
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -236,31 +230,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 25
+#line 24
  testRunner.Given("I have launched the app", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 26
+#line 25
  testRunner.Then("I am on the \"Home\" Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 27
+#line 26
  testRunner.When("I click on \"GoToNewTextPage\" Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 28
+#line 27
  testRunner.Then("I am on the \"NewText\" Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 29
+#line 28
  testRunner.And(string.Format("I add New \"{0}\" and \"{1}\"", textTitle, textText), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 30
+#line 29
  testRunner.And("I click on \"SaveText\" Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 31
+#line 30
  testRunner.Then("I am on the \"Home\" Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 32
+#line 31
  testRunner.And("I can see 1 Text Items in ListView", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 33
+#line 32
  testRunner.Then("I Delete first item from ListView", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -270,13 +264,12 @@ this.ScenarioInitialize(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Deleting Text Item: Juis yuwe sjkl Tywe oiq aklsjd asqw al.")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "NewTextPage")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("cleardata")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Juis yuwe sjkl Tywe oiq aklsjd asqw al.")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TextTitle", "Juis yuwe sjkl Tywe oiq aklsjd asqw al.")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TextText", "Binf yuw tyasas pwerq asyu tui nuiwe aske yrwn kashdihas asju ywte.")]
         public virtual void DeletingTextItem_JuisYuweSjklTyweOiqAklsjdAsqwAl_()
         {
-#line 24
+#line 23
 this.DeletingTextItem("Juis yuwe sjkl Tywe oiq aklsjd asqw al.", "Binf yuw tyasas pwerq asyu tui nuiwe aske yrwn kashdihas asju ywte.", ((string[])(null)));
 #line hidden
         }
