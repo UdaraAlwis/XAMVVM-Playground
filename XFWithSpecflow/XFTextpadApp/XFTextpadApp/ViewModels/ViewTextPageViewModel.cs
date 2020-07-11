@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Prism.Commands;
 using Prism.Navigation;
 using Xamarin.Forms;
@@ -20,12 +21,12 @@ namespace XFTextpadApp.ViewModels
         {
             _navigationService = navigationService;
 
-            DoneCommand = new DelegateCommand(Done);
+            DoneCommand = new DelegateCommand(async () => await Done());
         }
 
-        private void Done()
+        private async Task Done()
         {
-            _navigationService.GoBackAsync();
+            await _navigationService.GoBackAsync();
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)

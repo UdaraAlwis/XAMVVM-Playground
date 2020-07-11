@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using NUnit.Framework;
 using Prism.Ioc;
 using Shouldly;
@@ -61,7 +62,7 @@ namespace XFTextpadApp.NUnitTests.Tests
         /// and Going back to the Home Page
         /// </summary>
         [Test]
-        public void ViewTextDetailsAndGoBackPageTest()
+        public async Task ViewTextDetailsAndGoBackTest()
         {
             // Is the app running
             App.ShouldNotBeNull();
@@ -104,7 +105,13 @@ namespace XFTextpadApp.NUnitTests.Tests
             // Click "Done" button and navigate backwards
             App.Container.Resolve<ViewTextPageViewModel>().DoneCommand.Execute();
 
+            // Performing UI backward navigation
+            await ((NavigationPage) App.MainPage).Navigation.PopAsync();
+
             // Am I in the Home page
+            GetCurrentPage().BindingContext.GetType().Name.ShouldBe(nameof(HomePageViewModel));
+
+            // Check if we still see new Text Item in the List
             App.Container.Resolve<HomePageViewModel>().TextList.Count.ShouldBe(1);
         }
 

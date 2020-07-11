@@ -19,7 +19,7 @@ namespace XFTextpadApp.SpecFlowTests
             App.ShouldNotBeNull();
         }
         
-        [Then(@"I am on the ""(.*)"" Page")]
+        [Then(@"I am in the ""(.*)"" Page")]
         public void ThenIAmOnThePage(string pageName)
         {
             var navigationStack = ((NavigationPage)App.MainPage).Navigation.NavigationStack;

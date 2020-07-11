@@ -20,7 +20,7 @@ namespace XFTextpadApp.SpecFlowTests.Tests
         }
 
 
-        [Then(@"I Delete first item from ListView")]
+        [Then(@"I Delete first item from Text List")]
         public void ThenIDeleteFirstItemFromListView()
         {
            var firstTextItem = App.Container.Resolve<HomePageViewModel>().TextList.First();

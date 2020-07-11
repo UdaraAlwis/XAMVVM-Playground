@@ -10,16 +10,26 @@ namespace XFTextpadApp.SpecFlowTests.Tests
     {
         public TestApp App => TestHooks.App;
         
-        [Then(@"I can see (.*) Text Items in ListView")]
+        [Then(@"I can see (.*) Items in Text List")]
         public void ThenICanSeeTextItemInListView(int itemCount)
         {
             App.Container.Resolve<HomePageViewModel>().TextList.Count.ShouldBe(itemCount);
         }
 
-        [Then(@"I can see Empty ListView Label Displayed")]
+        [Then(@"I can see empty Text List indicating Label displayed")]
         public void ThenICanSeeEmptyListViewLabelDisplayed()
         {
             App.Container.Resolve<HomePageViewModel>().IsEmptyTextList.ShouldBe(true);
+        }
+
+        [Then(@"I Close and Reopen the app")]
+        public void ThenICloseAndReopenTheApp()
+        {
+            // Mocking Relaunching of the app
+            TestHooks hooks = new TestHooks();
+            hooks.BeforeScenario();
+
+            // App Relaunched
         }
     }
 }

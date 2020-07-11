@@ -1,36 +1,41 @@
 ﻿Feature: NewTextPage
 
-Scenario: Navigating to New Text
+Scenario: Navigating to New Text Page Test
 	Given I have launched the app
-	Then I am on the "Home" Page
+	Then I am in the "Home" Page
 	When I click on "GoToNewTextPage" Button
-	Then I am on the "NewText" Page
+	Then I am in the "NewText" Page
 
-Scenario Outline: Creating to New Text Item
+Scenario Outline: Creating new Text Item Test
 	Given I have launched the app
-	Then I am on the "Home" Page
+	Then I am in the "Home" Page
 	When I click on "GoToNewTextPage" Button
-	Then I am on the "NewText" Page
-	And I add New "<TextTitle>" and "<TextText>"
+	Then I am in the "NewText" Page
+	And I add New "<TextTitle>" and "<Text>"
 	And I click on "SaveText" Button
-	Then I am on the "Home" Page
-	And I can see 1 Text Items in ListView 
+	Then I am in the "Home" Page
+	And I can see 1 Items in Text List
 
 Examples: 
-	| TextTitle                               | TextText															 |
+	| TextTitle                               | Text															 |
 	| Juis yuwe sjkl Tywe oiq aklsjd asqw al. | Binf yuw tyasas pwerq asyu tui nuiwe aske yrwn kashdihas asju ywte.  |
 	
-Scenario: Deleting Text Item
+Scenario: Validating Input Data Test
 	Given I have launched the app
-	Then I am on the "Home" Page
+	Then I am in the "Home" Page
 	When I click on "GoToNewTextPage" Button
-	Then I am on the "NewText" Page
-	And I add New "<TextTitle>" and "<TextText>"
+	Then I am in the "NewText" Page
+	And I add New "<EmptyTextTitle>" and "<EmptyText>"
+	Then I am in the "NewText" Page
+	And I add New "<TextTitle>" and "<EmptyText>"
+	Then I am in the "NewText" Page
+	And I add New "<EmptyTextTitle>" and "<Text>"
 	And I click on "SaveText" Button
-	Then I am on the "Home" Page
-	And I can see 1 Text Items in ListView 
-	Then I Delete first item from ListView
+	And I add New "<TextTitle>" and "<Text>"
+	And I click on "SaveText" Button
+	Then I am in the "Home" Page
+	And I can see 1 Items in Text List
 
 Examples: 
-	| TextTitle                               | TextText															 |
-	| Juis yuwe sjkl Tywe oiq aklsjd asqw al. | Binf yuw tyasas pwerq asyu tui nuiwe aske yrwn kashdihas asju ywte.  |
+	| TextTitle                               | Text                                                                | EmptyTextTitle | EmptyText |
+	| Juis yuwe sjkl Tywe oiq aklsjd asqw al. | Binf yuw tyasas pwerq asyu tui nuiwe aske yrwn kashdihas asju ywte. |                |           |
