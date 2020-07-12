@@ -8,8 +8,13 @@ namespace XFTextpadApp.SpecFlowTests.Tests
     [Binding]
     public class HomePageSteps
     {
+        private readonly ScenarioContext _context;
         public TestApp App => TestHooks.App;
-        
+        public HomePageSteps(ScenarioContext injectedContext)
+        {
+            _context = injectedContext;
+        }
+
         [Then(@"I can see (.*) Items in Text List")]
         public void ThenICanSeeTextItemInListView(int itemCount)
         {

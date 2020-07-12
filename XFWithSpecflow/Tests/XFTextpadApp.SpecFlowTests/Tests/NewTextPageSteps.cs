@@ -9,8 +9,13 @@ namespace XFTextpadApp.SpecFlowTests.Tests
     [Binding]
     public class NewTextPageSteps
     {
+        private readonly ScenarioContext _context;
         public TestApp App => TestHooks.App;
-        
+        public NewTextPageSteps(ScenarioContext injectedContext)
+        {
+            _context = injectedContext;
+        }
+
         [Then(@"I add New ""(.*)"" and ""(.*)""")]
         public void ThenIAddNewAnd(string textTitle, string text)
         {

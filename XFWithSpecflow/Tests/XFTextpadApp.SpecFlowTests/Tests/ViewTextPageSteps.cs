@@ -11,7 +11,12 @@ namespace XFTextpadApp.SpecFlowTests.Tests
     [Binding]
     public class ViewTextPageSteps
     {
+        private readonly ScenarioContext _context;
         public TestApp App => TestHooks.App;
+        public ViewTextPageSteps(ScenarioContext injectedContext)
+        {
+            _context = injectedContext;
+        }
 
         [Then(@"I tap on first item in ListView")]
         public void ThenITapOnFirstItemInListView()
