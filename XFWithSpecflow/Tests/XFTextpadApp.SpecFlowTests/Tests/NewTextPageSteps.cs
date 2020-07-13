@@ -24,7 +24,6 @@ namespace XFTextpadApp.SpecFlowTests.Tests
             App.Container.Resolve<NewTextPageViewModel>().TextItem.TextDateTime = DateTime.Now;
         }
 
-
         [Then(@"I Delete first item from Text List")]
         public void ThenIDeleteFirstItemFromListView()
         {
@@ -32,6 +31,5 @@ namespace XFTextpadApp.SpecFlowTests.Tests
 
            App.Container.Resolve<HomePageViewModel>().DeleteTextCommand.Execute(firstTextItem);
         }
-
     }
 }

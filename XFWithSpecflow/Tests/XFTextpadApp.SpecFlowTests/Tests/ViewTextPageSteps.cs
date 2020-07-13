@@ -38,6 +38,5 @@ namespace XFTextpadApp.SpecFlowTests.Tests
         {
             await ((NavigationPage) App.MainPage).Navigation.PopAsync();
         }
-
     }
 }
