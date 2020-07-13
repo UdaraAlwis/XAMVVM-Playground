@@ -23,7 +23,6 @@ namespace XFTextpadApp.SpecFlowTests
         public void ThenIAmOnThePage(string pageName)
         {
             var navigationStack = ((NavigationPage)App.MainPage).Navigation.NavigationStack;
-
             // Am I in the page
             navigationStack.Last().BindingContext.GetType().Name.ShouldBe(pageName + "PageViewModel");
         }
@@ -33,7 +32,6 @@ namespace XFTextpadApp.SpecFlowTests
         public void WhenIClickOnButton(string p0)
         {
             var navigationStack = ((NavigationPage)App.MainPage).Navigation.NavigationStack;
-
             // retrieve the current ViewModel
             var currentViewModel = navigationStack.Last().BindingContext;
 

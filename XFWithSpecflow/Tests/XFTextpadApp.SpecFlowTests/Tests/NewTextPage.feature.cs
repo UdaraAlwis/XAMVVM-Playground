@@ -203,6 +203,32 @@ this.CreatingNewTextItemTest("Juis yuwe sjkl Tywe oiq aklsjd asqw al.", "Binf yu
 #line hidden
         }
         
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Creating new Text Item Test: Xlkasd j iwu eqowi ja skdiwe asld qp.")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "NewTextPage")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Xlkasd j iwu eqowi ja skdiwe asld qp.")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TextTitle", "Xlkasd j iwu eqowi ja skdiwe asld qp.")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Text", "Nj ahsdu aw ie uasdj ue asn dbnz xcq pwoe asdgoyxgy envow xad lw .")]
+        public virtual void CreatingNewTextItemTest_XlkasdJIwuEqowiJaSkdiweAsldQp_()
+        {
+#line 9
+this.CreatingNewTextItemTest("Xlkasd j iwu eqowi ja skdiwe asld qp.", "Nj ahsdu aw ie uasdj ue asn dbnz xcq pwoe asdgoyxgy envow xad lw .", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Creating new Text Item Test: Oqu sw hbasnwiu jsad yer bjkasqix bai.")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "NewTextPage")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Oqu sw hbasnwiu jsad yer bjkasqix bai.")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:TextTitle", "Oqu sw hbasnwiu jsad yer bjkasqix bai.")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Text", "Zbcvwo er ysof dt gskdfl shd bx vciwgery uw erppuyj s dfb jhb msja.")]
+        public virtual void CreatingNewTextItemTest_OquSwHbasnwiuJsadYerBjkasqixBai_()
+        {
+#line 9
+this.CreatingNewTextItemTest("Oqu sw hbasnwiu jsad yer bjkasqix bai.", "Zbcvwo er ysof dt gskdfl shd bx vciwgery uw erppuyj s dfb jhb msja.", ((string[])(null)));
+#line hidden
+        }
+        
         public virtual void ValidatingInputDataTest(string textTitle, string text, string emptyTextTitle, string emptyText, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -212,7 +238,7 @@ this.CreatingNewTextItemTest("Juis yuwe sjkl Tywe oiq aklsjd asqw al.", "Binf yu
             argumentsOfScenario.Add("EmptyTextTitle", emptyTextTitle);
             argumentsOfScenario.Add("EmptyText", emptyText);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validating Input Data Test", null, tagsOfScenario, argumentsOfScenario);
-#line 23
+#line 25
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -232,46 +258,46 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 24
+#line 26
  testRunner.Given("I have launched the app", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 25
+#line 27
  testRunner.Then("I am in the \"Home\" Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 26
- testRunner.When("I click on \"GoToNewTextPage\" Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 27
- testRunner.Then("I am in the \"NewText\" Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 28
- testRunner.And(string.Format("I add New \"{0}\" and \"{1}\"", emptyTextTitle, emptyText), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I click on \"GoToNewTextPage\" Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 29
  testRunner.Then("I am in the \"NewText\" Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 30
- testRunner.And(string.Format("I add New \"{0}\" and \"{1}\"", textTitle, emptyText), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("I add New \"{0}\" and \"{1}\"", emptyTextTitle, emptyText), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 31
  testRunner.Then("I am in the \"NewText\" Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 32
- testRunner.And(string.Format("I add New \"{0}\" and \"{1}\"", emptyTextTitle, text), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("I add New \"{0}\" and \"{1}\"", textTitle, emptyText), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 33
- testRunner.And("I click on \"SaveText\" Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("I am in the \"NewText\" Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 34
- testRunner.And(string.Format("I add New \"{0}\" and \"{1}\"", textTitle, text), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("I add New \"{0}\" and \"{1}\"", emptyTextTitle, text), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 35
  testRunner.And("I click on \"SaveText\" Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 36
- testRunner.Then("I am in the \"Home\" Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And(string.Format("I add New \"{0}\" and \"{1}\"", textTitle, text), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 37
+ testRunner.And("I click on \"SaveText\" Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 38
+ testRunner.Then("I am in the \"Home\" Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 39
  testRunner.And("I can see 1 Items in Text List", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -288,7 +314,7 @@ this.ScenarioInitialize(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:EmptyText", "")]
         public virtual void ValidatingInputDataTest_JuisYuweSjklTyweOiqAklsjdAsqwAl_()
         {
-#line 23
+#line 25
 this.ValidatingInputDataTest("Juis yuwe sjkl Tywe oiq aklsjd asqw al.", "Binf yuw tyasas pwerq asyu tui nuiwe aske yrwn kashdihas asju ywte.", "", "", ((string[])(null)));
 #line hidden
         }
