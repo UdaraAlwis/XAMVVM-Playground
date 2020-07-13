@@ -11,7 +11,7 @@ Since SpecFlow bring the beauty of Gherkin-BDD  goodness to .NET we can directly
 Read my full blog post here:
 https://theconfuzedsourcecode.wordpress.com/
 
-<img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithSpecFlow/screenshots/Discovered Test Session.png"  height="270" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithSpecFlow/screenshots/Running SpecFlow Tests in Xamarin.Forms Results.gif"  height="270" />
+<img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithSpecFlow/screenshots/XFWithSpecFlow Created SpecFlow Tests for Xamarin.Forms app.png"  height="270" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithSpecFlow/screenshots/Running SpecFlow Tests in Xamarin.Forms Results.gif"  height="270" />
 
 <br />
 
