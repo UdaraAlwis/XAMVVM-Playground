@@ -10,10 +10,12 @@ Now in order to actually implement these BDD Tests using Gherkin syntaxes, we us
 Since SpecFlow bring the beauty of Gherkin-BDD  goodness to .NET we can directly use it in our Xamarin.Forms project solution as well any .NET project solution.
 
 Read my full blog post here:
-https://theconfuzedsourcecode.wordpress.com/
+https://theconfuzedsourcecode.wordpress.com/2020/07/14/xamvvm-03-specflow-bdd-unittesting-with-xamarin-forms/
 
 <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithSpecFlow/screenshots/XFWithSpecFlow Created SpecFlow Tests for Xamarin.Forms app.png"  height="270" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithSpecFlow/screenshots/Running SpecFlow Tests in Xamarin.Forms Results.gif"  height="270" />
 
 <br />
+
+Here's the demo App used for implementing these test cases:
 
 <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithSpecFlow/screenshots/Features/XFWithSpecFlow 1 iOS.png"  height="270" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithSpecFlow/screenshots/Features/XFWithSpecFlow 2 iOS.png"  height="270" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithSpecFlow/screenshots/Features/XFWithSpecFlow 3 iOS.png"  height="270" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithSpecFlow/screenshots/Features/XFWithSpecFlow 4 iOS.png"  height="270" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithSpecFlow/screenshots/Features/XFWithSpecFlow 5 iOS.png"  height="270" /> <img src="https://github.com/UdaraAlwis/XAMVVM-Playground/blob/master/XFWithSpecFlow/screenshots/Features/XFWithSpecFlow 6 iOS.png"  height="270" />
